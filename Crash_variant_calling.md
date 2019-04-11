@@ -90,4 +90,25 @@ source activate ngs1
 bash $IGV -g bwaIndex/dog_chr5.fa BD143_TGACCA_L005.sorted.bam
 ```
 
+Call variants
+=============
+
+mpileup: 
+- Generate genotype likelihoods for one or multiple alignment files. 
+- Individuals are identified from the SM tags in the @RG header lines. Multiple individuals can be pooled in one alignment file, also one individual can be separated into multiple files. If sample identifiers are absent, each input file is regarded as one sample.
+- Base alignment quality (BAQ). BAQ is the Phred-scaled probability of a read base being misaligned. Applying this option greatly helps to reduce false SNPs caused by misalignments.
+- `-Ou` option for piping between bcftools subcommands to speed up performance by removing unnecessary compression/decompression and VCF←→BCF conversion.
+
+Call: 
+- SNP/indel calling 
+- `-m` multiallelic-caller
+- `-v` output variant sites only
+
+## Install [BCFTools](http://www.htslib.org/doc/bcftools.html)
+```
+conda install bcftools
+bcftools mpileup -Ou -f bwaIndex/dog_chr5.fa BD143_TGACCA_L005.sorted.bam |\
+bcftools call -Ov -mv > BD143_TGACCA_L005.vcf
+```
+
 
