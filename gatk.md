@@ -81,6 +81,55 @@ picard_path="/home/ngs-01/miniconda3/envs/ngs1/share/picard-2.19.0-0"
 
 # merge the replicates
 java  -Xmx2g -jar $picard_path/picard.jar MergeSamFiles I=BD143_TGACCA_L005.sorted.bam I=BD143_TGACCA_L006.sorted.bam OUTPUT=BD143_TGACCA_merged.sorted.bam
+
+# check for the changes in the header
+samtools view -H BD143_TGACCA_L005.sorted.bam
+samtools view -H BD143_TGACCA_L006.sorted.bam
+samtools view -H BD143_TGACCA_merged.sorted.bam
+
+# remove the individual replicates
+rm BD143_TGACCA_L00*.sorted.bam
 ```
 
-Note: Duplicate marking should NOT be applied to amplicon sequencing data or other data types where reads start and stop at the same positions by design.
+**Note**: Duplicate marking should NOT be applied to amplicon sequencing data or other data types where reads start and stop at the same positions by design.
+
+
+## mapping QC
+```
+for bamFile in *.sorted.bam;do
+  output=${bamFile%.sorted.bam}
+  samtools depth $bamFile | awk '{{sum+=$3}} END {{print "Average = ",sum/NR}}' > $output.cov
+  samtools flagstat $bamFile > $output.stat
+done
+```
+
+## Mark duplicate
+```
+for sample in *.sorted.bam;do
+  name=${sample%.sorted.bam}
+  java  -Xmx2g -jar $picard_path/picard.jar MarkDuplicates INPUT=$sample OUTPUT=$name.dedup.bam METRICS_FILE=$name.metrics.txt;
+done
+```
+
+## Install GATK
+```
+conda install -c bioconda gatk4 
+```
+
+## indexing
+```
+# samples
+for sample in *.dedup.bam;do
+  #name=${sample%.dedup.bam}
+  java -Xmx2g -jar $picard_path/picard.jar BuildBamIndex VALIDATION_STRINGENCY=LENIENT INPUT=$sample
+done
+
+# Reference
+ln -s ~/workdir/sample_data/dog_chr5.fa .
+java -Xmx2g -jar $picard_path/picard.jar CreateSequenceDictionary R=dog_chr5.fa O=dog_chr5.dict
+samtools faidx dog_chr5.fa
+```
+
+## Recalibrate Bases [BQSR](https://gatkforums.broadinstitute.org/gatk/discussion/44/base-quality-score-recalibration-bqsr)
+
+
