@@ -130,6 +130,24 @@ java -Xmx2g -jar $picard_path/picard.jar CreateSequenceDictionary R=dog_chr5.fa 
 samtools faidx dog_chr5.fa
 ```
 
+## Download known varinats
+
+```
+# Download known polymorphic sites
+wget 'ftp://ftp.ensembl.org/pub/release-89/variation/vcf/canis_familiaris/Canis_familiaris.vcf.gz' -O canis_familiaris.vcf.gz
+
+# Select variants on chr5 and correct chr name
+gunzip canis_familiaris.vcf.gz
+grep "^#" canis_familiaris.vcf > canis_fam_chr5.vcf
+grep "^5" canis_familiaris.vcf | sed 's/^5/chr5/' >> canis_fam_chr5.vcf
+```
+
+Note the differences between genome annotation databases. Not only chromosome names but more importantly the coordinate system [interesting post](https://www.biostars.org/p/84686/)
+
 ## Recalibrate Bases [BQSR](https://gatkforums.broadinstitute.org/gatk/discussion/44/base-quality-score-recalibration-bqsr)
 
+- data pre-processing step that detects systematic errors made by the sequencer when it estimates the quality score of each base call.
+- various sources of systematic (non-random) technical error, leading to over- or under-estimated base quality scores in the data. Some of these errors are due to the physics or the chemistry of how the sequencing reaction works, and some are probably due to manufacturing flaws in the equipment.
+- we apply machine learning to model these errors empirically and adjust the quality scores accordingly. For example we can identify that, for a given run, whenever we called two A nucleotides in a row, the next base we called had a 1% higher rate of error. So any base call that comes after AA in a read should have its quality score reduced by 1%.
+- We do that over several different covariates (mainly sequence context and position in read, or cycle) in a way that is additive. So the same base may have its quality score increased for one reason and decreased for another
 
