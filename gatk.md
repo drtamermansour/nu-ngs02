@@ -79,7 +79,8 @@ Explore files size!
 ```
 # Install Picard tools
 conda install -c bioconda picard 
-picard_path="/home/ngs-01/miniconda3/envs/ngs1/share/picard-2.19.0-0"
+picard_path=$CONDA_PREFIX/share/picard-2.19.0-0"
+
 
 # merge the replicates
 java  -Xmx2g -jar $picard_path/picard.jar MergeSamFiles I=BD143_TGACCA_L005.sorted.bam I=BD143_TGACCA_L006.sorted.bam OUTPUT=BD143_TGACCA_merged.sorted.bam
