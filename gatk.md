@@ -2,7 +2,16 @@
 GATK Variant calling
 ====================
 
-Did you run the [crash variant calling tutorial](https://github.com/drtamermansour/nu-ngs02/blob/master/Crash_variant_calling.md)?
+Did you run the [crash variant calling tutorial](https://github.com/drtamermansour/nu-ngs02/blob/master/Crash_variant_calling.md)? Make sure you run it to download data and software needed for this tutorial
+
+Data trimming: 
+- Trimming is data loss so be careful.
+- Sequence trimming is complementary to variant filtration
+- Sources of errors: 
+    * The call is suspicious ==> low quality score (variant filtration is better than quality trimming) 
+    * Technical problems (e.g. sequencing chemistry or physics) ==> systematic errors (can be removed by careful kmer based trimming. GATK recalibration is an alternative)
+    
+- Very mild quality trimming: SLIDINGWINDOW:4:2 ==> this means that the Base call accuracy is ~ 40%. Check this [tutorial](https://github.com/drtamermansour/nu-ngs01/blob/master/Day-2/Trimmomatic_tutorial.md) for more info.
 
 ## Explore the sample names
 ```
@@ -22,7 +31,8 @@ for R1 in ~/workdir/fqData/*_R1_001.pe.fq.gz;do
 
     R2=$(echo $R1 | sed 's/_R1_/_R2_/')
     echo $R1 $R2
-    bwa mem -t 4 -M -R "@RG\tID:$RGID\tSM:$SM\tPL:$PL\tLB:$LB\tPU:$PU" dog_chr5.fa $R1 $R2 > $(basename $R1 _R1_001.pe.fq.gz).sam
+    index="$HOME/workdir/bwa_align/bwaIndex/dog_chr5.fa"
+    bwa mem -t 4 -M -R "@RG\tID:$RGID\tSM:$SM\tPL:$PL\tLB:$LB\tPU:$PU" $index $R1 $R2 > $(basename $R1 _R1_001.pe.fq.gz).sam
 done
 ```
 
@@ -51,3 +61,26 @@ special Notes:
 - if you have one library for each sample running on one lane of a sequencing machine then you can make SM=LB=RGID=PU
 
 ```
+
+## generate & sort BAM file
+
+```
+for samfile in *.sam;do
+  sample=${samfile%.sam}
+  samtools view -hbo $sample.bam $samfile
+  samtools sort $sample.bam -o $sample.sorted.bam
+done
+```
+Explore files size!
+
+## Merge replicates (e.g. one library running on two lanes) with [Picard tools](http://broadinstitute.github.io/picard/):
+```
+# Install Picard tools
+conda install -c bioconda picard 
+picard_path="/home/ngs-01/miniconda3/envs/ngs1/share/picard-2.19.0-0"
+
+# merge the replicates
+java  -Xmx2g -jar $picard_path/picard.jar MergeSamFiles I=BD143_TGACCA_L005.sorted.bam I=BD143_TGACCA_L006.sorted.bam OUTPUT=BD143_TGACCA_merged.sorted.bam
+```
+
+Note: Duplicate marking should NOT be applied to amplicon sequencing data or other data types where reads start and stop at the same positions by design.
