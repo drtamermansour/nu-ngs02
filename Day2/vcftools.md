@@ -28,7 +28,7 @@ wget ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/pilot_data/release/2010_07/exo
 
 ### Working with the compressed `--gzvcf` flag
 
-`vcftools --gzvcf pilot.vcf`
+`vcftools --gzvcf pilot.vcf.gz`
 
 > **Try to figure out what is the filtered & unfiltered sites!**
 
@@ -73,9 +73,48 @@ wget ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/pilot_data/release/2010_07/exo
 
 `vcftools --vcf gt.vcf --freq --out freq`
 
+```
+CHROM	POS	N_ALLELES	N_CHR	{ALLELE:FREQ}
+1	1105324	2	126	C:0.968254	T:0.031746
+```
+
+> The N_ALLELES column indicates the number of possible alleles at that locus.
+> In our case it is 2 at both sites, the reference and one alternate allele. 
+> The N_CHR column indicates the amount of chromosomes you have data available for at that locus. In our case, we have data for 63 diploid individuals at each site, giving us 126 chromosomes.
+
 ---
 
-## Getting sequencing depth information
+## Extract specific SNPs
 
-`vcftools --vcf gt.vcf --depth -c > gt_depth_summary.txt`
+extract SNP: rs725021
+
+`vcftools --vcf gt.vcf --snp rs725021 --recode --recode-INFO-all --stdout > rs725021.vcf`
+
+### Extract list of SNPs
+
+`nano snps.txt`
+
+```
+rs725021
+rs34506306
+rs35595233
+rs1382603
+rs34752670
+```
+
+`vcftools --vcf gt.vcf --snps snps.txt --recode --recode-INFO-all --stdout > snps_list.vcf`
+
+## FILTER FLAG FILTERING
+
+> Removes all sites with a FILTER flag other than PASS.
+
+`vcftools --vcf gt.vcf --remove-filtered-all --recode --recode-INFO-all --stdout > all_passed.vcf`
+
+
+
+---
+
+## Convert to PLINK
+
+`vcftools --vcf gt.vcf --plink  --out gt_plink`
 
