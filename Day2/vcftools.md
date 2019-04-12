@@ -110,6 +110,17 @@ rs34752670
 
 `vcftools --vcf gt.vcf --remove-filtered-all --recode --recode-INFO-all --stdout > all_passed.vcf`
 
+## Export all genotypes depth
+
+`vcftools --vcf gt.vcf --geno-depth -c > gt_genotypes_depth.vcf`
+
+## Generates a file containing the mean depth per individual. This file has the suffix.
+
+`vcftools --vcf gt.vcf --depth -c > mean_depth.vcf`
+
+## the depth  for each site summed across individuals.
+
+`vcftools --vcf gt.vcf --site-depth -c > site_depth.vcf`
 
 
 ---
