@@ -118,6 +118,7 @@ done
 ```
 conda install -c bioconda gatk4 
 ```
+check for best practice [here](https://software.broadinstitute.org/gatk/best-practices/workflow?id=11145)
 
 ## indexing
 ```
@@ -143,13 +144,60 @@ wget 'ftp://ftp.ensembl.org/pub/release-89/variation/vcf/canis_familiaris/Canis_
 gunzip canis_familiaris.vcf.gz
 grep "^#" canis_familiaris.vcf > canis_fam_chr5.vcf
 grep "^5" canis_familiaris.vcf | sed 's/^5/chr5/' >> canis_fam_chr5.vcf
+gatk IndexFeatureFile -F canis_fam_chr5.vcf
 ```
 
 Note the differences between genome annotation databases. Not only chromosome names but more importantly the coordinate system [interesting post](https://www.biostars.org/p/84686/)
 
 ## Recalibrate Bases [BQSR](https://gatkforums.broadinstitute.org/gatk/discussion/44/base-quality-score-recalibration-bqsr)
 
-- data pre-processing step that detects systematic errors made by the sequencer when it estimates the quality score of each base call.
-- various sources of systematic (non-random) technical error, leading to over- or under-estimated base quality scores in the data. Some of these errors are due to the physics or the chemistry of how the sequencing reaction works, and some are probably due to manufacturing flaws in the equipment.
-- we apply machine learning to model these errors empirically and adjust the quality scores accordingly. For example we can identify that, for a given run, whenever we called two A nucleotides in a row, the next base we called had a 1% higher rate of error. So any base call that comes after AA in a read should have its quality score reduced by 1%.
+- Data pre-processing step that detects systematic errors made by the sequencer when it estimates the quality score of each base call.
+- Various sources of systematic (non-random) technical error, leading to over- or under-estimated base quality scores in the data. Some of these errors are due to the physics or the chemistry of how the sequencing reaction works, and some are probably due to manufacturing flaws in the equipment.
+- We apply machine learning to model these errors empirically and adjust the quality scores accordingly. For example we can identify that, for a given run, whenever we called two A nucleotides in a row, the next base we called had a 1% higher rate of error. So any base call that comes after AA in a read should have its quality score reduced by 1%.
 - We do that over several different covariates (mainly sequence context and position in read, or cycle) in a way that is additive. So the same base may have its quality score increased for one reason and decreased for another
+- The base recalibration process involves two key steps: first one tool [(BaseRecalibrator)](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.5.0/org_broadinstitute_hellbender_tools_walkers_bqsr_BaseRecalibrator.php#--use-original-qualities) builds a model of covariation based on the data and a set of known variants, then another tool [(ApplyBQSR)](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.5.0/org_broadinstitute_hellbender_tools_walkers_bqsr_ApplyBQSR.php) adjusts the base quality scores in the data based on the model.
+
+```
+for sample in *.dedup.bam;do
+  name=${sample%.dedup.bam}
+
+  gatk --java-options "-Xmx2G" BaseRecalibrator \
+-R dog_chr5.fa -I $sample --known-sites canis_fam_chr5.vcf \
+-O $name.report
+
+  gatk --java-options "-Xmx2G" ApplyBQSR \
+-R dog_chr5.fa -I $sample -bqsr $name.report \
+-O $name.bqsr.bam --add-output-sam-program-record --emit-original-quals
+done
+```
+
+## Joint variant calling using [HaplotypeCaller](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.5.0/org_broadinstitute_hellbender_tools_walkers_haplotypecaller_HaplotypeCaller.php)
+
+Call germline SNPs and indels via **local re-assembly** of haplotypes
+
+```
+## per-sample calling
+for sample in *.bqsr.bam;do
+  name=${sample%.bqsr.bam}
+
+  gatk --java-options "-Xmx2G" HaplotypeCaller \
+  -R dog_chr5.fa -I $sample \
+  --emit-ref-confidence GVCF \
+  --pcr-indel-model NONE \
+  -O $name.gvcf
+done
+
+## Joint Genotyping
+gatk --java-options "-Xmx2G" CombineGVCFs \
+-R dog_chr5.fa \
+-V BD143_TGACCA_merged.g.vcf \
+-V BD174_CAGATC_L005.g.vcf \
+-V BD225_TAGCTT_L007.g.vcf \
+-O raw_variants.vcf
+```
+
+## How RNA variant calling is different?
+
+## How somatic variant calling is different?
+
+https://software.broadinstitute.org/gatk/best-practices/workflow?id=11146
