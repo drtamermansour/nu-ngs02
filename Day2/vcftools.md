@@ -122,6 +122,8 @@ rs34752670
 
 `vcftools --vcf gt.vcf --site-depth -c > site_depth.vcf`
 
+## Alleles Count
+`vcftools --vcf gt.vcf --counts -c > gt_counts.vcf`
 
 ---
 
