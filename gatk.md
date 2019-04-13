@@ -202,6 +202,16 @@ gatk --java-options "-Xmx60G" GenotypeGVCFs \
 --max-alternate-alleles 6 \
 -O raw_variants.vcf
 
+## annotated output
+gatk --java-options "-Xmx60G" GenotypeGVCFs \
+-R dog_chr5.fa \
+-V raw_variants.gvcf \
+--max-alternate-alleles 6 \
+--dbsnp canis_fam_chr5.vcf \
+-O raw_variants_ann.vcf
+
+## check how many variant got annotated
+grep -v "^#" raw_variants_ann.vcf | awk '{print $3}' | grep "^rs" | wc -l
 ```
 
 ## VCF statitics
@@ -209,20 +219,64 @@ gatk --java-options "-Xmx60G" GenotypeGVCFs \
 First letus index the VCF file
 ```
 conda install -c bioconda tabix
-bgzip -c raw_variants.vcf > raw_variants.vcf.gz
-tabix -p vcf raw_variants.vcf.gz
+bgzip -c raw_variants_ann.vcf > raw_variants_ann.vcf.gz
+tabix -p vcf raw_variants_ann.vcf.gz
 ```
 
 Calc some stats about your vcf
 ```
 conda install -c bioconda rtg-tools
-rtg vcfstats raw_variants.vcf.gz > stats.txt
+rtg vcfstats raw_variants_ann.vcf.gz > stats.txt
 ```
 
 read more about [RTG tools](https://www.realtimegenomics.com/products/rtg-tools) and explore there [manual](https://cdn.rawgit.com/RealTimeGenomics/rtg-tools/master/installer/resources/tools/RTGOperationsManual/index.html) for the possible commands
 
+## Split SNPs and indels
 
+```
+gatk --java-options "-Xmx2G" SelectVariants \
+-R dog_chr5.fa \
+-V raw_variants_ann.vcf \
+--select-type-to-include SNP \
+-O raw_variants_ann_SNP.vcf
+
+gatk --java-options "-Xmx2G" SelectVariants \
+-R dog_chr5.fa \
+-V raw_variants_ann.vcf \
+--select-type-to-include INDEL \
+-O raw_variants_ann_INDEL.vcf
+```
+
+## Assess the different filters in both known and novel
+```
+for var in "SNP" "INDEL";do
+ input="raw_variants_ann_"$var".vcf"
+ for filter in "QD" "MQ" "MQRankSum" "FS" "SOR" "ReadPosRankSum" "AN" "DP" "InbreedingCoeff";do
+  filterValues=$var.$filter
+  awk -v k="$filter=" '!/#/{n=split($8,a,";"); for(i=1;i<=n;i++) if(a[i]~"^"k) {sub(k,$3" ",a[i]); print a[i]}}' $input > $filterValues
+  grep -v "^\." $filterValues > known.$var.$filter
+  grep "^\." $filterValues > novel.$var.$filter
+done; done
+```
+
+let us make things a little bit more organized
+```
+mkdir filters && cd filters
+mv ../{*.SNP.*,SNP.*,*.INDEL.*,INDEL.*} .
+```
+
+Figures!!!
+```
+wget https://raw.githubusercontent.com/dib-lab/dogSeq/master/scripts/densityCurves.R
+sudo Rscript -e "install.packages('ggplot2', contriburl=contrib.url('http://cran.r-project.org/'))"
+for f in SNP.* INDEL.*;do
+ Rscript densityCurves.R "$f"
+done
+
+```
 ## How RNA variant calling is different?
+
+https://gatkforums.broadinstitute.org/gatk/discussion/3891/calling-variants-in-rnaseq
 
 ## How somatic variant calling is different?
 
