@@ -176,7 +176,7 @@ done
 Call germline SNPs and indels via **local re-assembly** of haplotypes
 
 ```
-## per-sample calling
+## assess genotype likelihood per-sample
 for sample in *.bqsr.bam;do
   name=${sample%.bqsr.bam}
 
@@ -187,14 +187,40 @@ for sample in *.bqsr.bam;do
   -O $name.gvcf
 done
 
-## Joint Genotyping
+## combine samples
 gatk --java-options "-Xmx2G" CombineGVCFs \
 -R dog_chr5.fa \
--V BD143_TGACCA_merged.g.vcf \
--V BD174_CAGATC_L005.g.vcf \
--V BD225_TAGCTT_L007.g.vcf \
+-V BD143_TGACCA_merged.gvcf \
+-V BD174_CAGATC_L005.gvcf \
+-V BD225_TAGCTT_L007.gvcf \
+-O raw_variants.gvcf
+
+## Joint Genotyping
+gatk --java-options "-Xmx60G" GenotypeGVCFs \
+-R dog_chr5.fa \
+-V raw_variants.gvcf \
+--max-alternate-alleles 6 \
 -O raw_variants.vcf
+
 ```
+
+## VCF statitics
+
+First letus index the VCF file
+```
+conda install -c bioconda tabix
+bgzip -c raw_variants.vcf > raw_variants.vcf.gz
+tabix -p vcf raw_variants.vcf.gz
+```
+
+Calc some stats about your vcf
+```
+conda install -c bioconda rtg-tools
+rtg vcfstats raw_variants.vcf.gz > stats.txt
+```
+
+read more about [RTG tools](https://www.realtimegenomics.com/products/rtg-tools) and explore there [manual](https://cdn.rawgit.com/RealTimeGenomics/rtg-tools/master/installer/resources/tools/RTGOperationsManual/index.html) for the possible commands
+
 
 ## How RNA variant calling is different?
 
