@@ -272,8 +272,13 @@ sudo Rscript -e "install.packages('ggplot2', contriburl=contrib.url('http://cran
 for f in SNP.* INDEL.*;do
  Rscript densityCurves.R "$f"
 done
-
 ```
+
+Calc the DP threathols
+```
+cat SNP.DP INDEL.DP | awk '{sum+= $2; sumsq+= ($2)^2} END { print sum/NR, sqrt((sumsq-sum^2/NR)/NR), sum/NR + 5*sqrt((sumsq-sum^2/NR)/NR) }' 
+```
+
 ## How RNA variant calling is different?
 
 https://gatkforums.broadinstitute.org/gatk/discussion/3891/calling-variants-in-rnaseq
