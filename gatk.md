@@ -270,13 +270,62 @@ Figures!!!
 wget https://raw.githubusercontent.com/dib-lab/dogSeq/master/scripts/densityCurves.R
 sudo Rscript -e "install.packages('ggplot2', contriburl=contrib.url('http://cran.r-project.org/'))"
 for f in SNP.* INDEL.*;do
- Rscript densityCurves.R "$f"
+  Rscript densityCurves.R "$f"
 done
 ```
 
 Calc the DP threathols
 ```
 cat SNP.DP INDEL.DP | awk '{sum+= $2; sumsq+= ($2)^2} END { print sum/NR, sqrt((sumsq-sum^2/NR)/NR), sum/NR + 5*sqrt((sumsq-sum^2/NR)/NR) }' 
+```
+
+## SNP Variant filteration
+```
+cd ~/workdir/GATK_tutorial
+gatk --java-options "-Xmx2G" VariantFiltration \
+-R dog_chr5.fa \
+-V raw_variants_ann_SNP.vcf \
+--filter-name "snpQD" \
+--filter-expression "vc.hasAttribute('QD') && QD < 2.0" \
+--filter-name "snpMQ" \
+--filter-expression "vc.hasAttribute('MQ') && MQ < 40.0" \
+--filter-name "snpMQRankSum" \
+--filter-expression "vc.hasAttribute('MQRankSum') && MQRankSum < -12.5" \
+--filter-name "snpFS" \
+--filter-expression "vc.hasAttribute('FS') && FS > 60.0" \
+--filter-name "snpSOR" \
+--filter-expression "vc.hasAttribute('SOR') && SOR > 4.0" \
+--filter-name "snpReadPosRankSum" \
+--filter-expression "vc.hasAttribute('ReadPosRankSum') && ReadPosRankSum < -8.0" \
+--filter-name "snpDP" \
+--filter-expression "vc.hasAttribute('DP') && DP > 3105" \
+-O raw_variants_ann_SNP_clean.vcf
+```
+
+check the filtered recored 
+```
+grep -v "^#" raw_variants_ann_SNP_clean.vcf | awk '{if($7!="PASS")print $0}'
+```
+
+## INDEL Variant filteration
+```
+cd ~/workdir/GATK_tutorial
+gatk --java-options "-Xmx2G" VariantFiltration \
+-R dog_chr5.fa \
+-V raw_variants_ann_SNP.vcf \
+--filter-name "indelQD" \
+--filter-expression "vc.hasAttribute('QD') && QD < 2.0" \
+--filter-name "indelFS" \
+--filter-expression "vc.hasAttribute('FS') && FS > 200.0" \
+--filter-name "indelSOR" \
+--filter-expression "vc.hasAttribute('SOR') && SOR > 10.0" \
+--filter-name "indelReadPosRankSum" \
+--filter-expression "vc.hasAttribute('ReadPosRankSum') && ReadPosRankSum < -20.0" \
+--filter-name "indelInbreedingCoeff" \
+--filter-expression "vc.hasAttribute('InbreedingCoeff') && InbreedingCoeff < -0.8" \
+--filter-name "indelDP" \
+--filter-expression "vc.hasAttribute('DP') && DP > 3105" \
+-O raw_variants_ann_INDEL_clean.vcf
 ```
 
 ## How RNA variant calling is different?
