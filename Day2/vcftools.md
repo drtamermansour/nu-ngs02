@@ -5,7 +5,6 @@
 ```
 conda activate ngs1
 conda install vcftools
-conda install bcftools
 ```
 
 ## Test Data Download
