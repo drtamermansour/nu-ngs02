@@ -113,7 +113,7 @@ rs34752670
 
 `vcftools --vcf gt.vcf --geno-depth -c > gt_genotypes_depth.vcf`
 
-## Generates a file containing the mean depth per individual. This file has the suffix.
+## Generates a file containing the mean depth per individual.
 
 `vcftools --vcf gt.vcf --depth -c > mean_depth.vcf`
 
@@ -129,4 +129,3 @@ rs34752670
 ## Convert to PLINK
 
 `vcftools --vcf gt.vcf --plink  --out gt_plink`
-
