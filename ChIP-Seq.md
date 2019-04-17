@@ -88,6 +88,7 @@ gunzip refGene.txt.gz
 # have a look of the file
 less -S refGene.txt
 ```
+
 ```
 1340    NM_001162506    chr15   +       99074972        99083409        99075354
 1521    NM_001162503    chr2    +       122765358       122809551       12278496
@@ -113,8 +114,9 @@ less -S refGene.txt
 1242    NM_147017       chr2    -       86197802        86198750        86197802
 1243    NM_147016       chr2    -       86254764        86255691        86254764
 ```
-<img src="https://angus.readthedocs.io/en/stable/_images/mm10_refgene.2400x2400.jpeg">
+<img src="https://angus.readthedocs.io/en/stable/_images/mm10_refgene.2400x2400.jpeg"/>
 We will need field 3,4,5,6,13 and rearrange the columns to a bed format.
+
 ```
 cat refGene.txt | cut -f3-6,13 | awk -v OFS='\t' '{print $1,$3,$4,$5,".",$2}' > mm10_refgene.bed
 ```
@@ -133,6 +135,7 @@ head mm10.genes.5kb.promoters.bed
 # compare to the original file
 head mm10_refgene.bed
 ```
+---
 ```
 chr15	99069972	99074972	Troap	.	+
 chr2	122760358	122765358	Sqor	.	+
