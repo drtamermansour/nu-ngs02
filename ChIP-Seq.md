@@ -147,7 +147,7 @@ chr2	181492141	181497141	Tpd52l2	.	+
 ```
 Peaks overlap with the promoter regions
 ```
-bedtools intersect -a Oct_peaks.bed -b mm10genes.5kb.promoters.bed -wa -wb > Oct4_peaks_overlap_promoter.txt
+bedtools intersect -a Oct_peaks.bed -b mm10.genes.5kb.promoters.bed -wa -wb > Oct4_peaks_overlap_promoter.txt
 # select genes
 cat Oct4_peaks_overlap_promoter.txt | cut -f8 | sort | uniq > genes_with_Oct4_binding.txt
 ```
