@@ -135,7 +135,7 @@ head mm10.genes.5kb.promoters.bed
 # compare to the original file
 head mm10_refgene.bed
 ```
----
+
 ```
 chr15	99069972	99074972	Troap	.	+
 chr2	122760358	122765358	Sqor	.	+
