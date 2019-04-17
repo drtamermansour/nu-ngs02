@@ -157,6 +157,7 @@ cat Oct4_peaks_overlap_promoter.txt | cut -f8 | sort | uniq > genes_with_Oct4_bi
 ## Alternatively you can use HOMER
 ```
 conda install homer
+perl $CONDA_PREFIX/share/homer-4.9.1-6/configureHomer.pl -install mm10
 annotatePeaks.pl Oct4_summits.bed mm10 > genes_with_Oct4_binding_homer.txt
 less -S genes_with_Oct4_binding_homer.txt
 ```
