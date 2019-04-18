@@ -332,6 +332,23 @@ gatk --java-options "-Xmx2G" VariantFiltration \
 
 https://gatkforums.broadinstitute.org/gatk/discussion/3891/calling-variants-in-rnaseq
 
+*  Alignmnet: Star 2 step to enhance varinat calling around exon-exon junctions
+*  Mark duplicates: Unlike expression analysis, marking duplicates is recommended in RNAseq variant calling
+*  split'N'Trim: Split N-Ciger reads and hard-clip any sequences overhanging into the intronic regions
+*  Joint variant calling is not offcially tested in GATK
+
 ## How somatic variant calling is different?
 
 https://software.broadinstitute.org/gatk/best-practices/workflow?id=11146
+
+*  Mutect2
+   *  **Panel of normals (PoN)**: call on each normal sample as if a tumor sample. Then use CreateSomaticPanelOfNormals to output a PoN of germline and artifactual sites. 
+   *  **germline_resource**: Population vcf of germline sequencing, such as [gnomAD](https://gnomad.broadinstitute.org/?fbclid=IwAR0qyRChb8ZPNW5Uim0dYWgs6U87GTcSiBNco5COjhmp-NC2p19FWSxD2KM), containing population allele frequencies of common and rare variants.
+   *  **Matched tumor and control samples**: Mutect2 works primarily by contrasting the presence or absence of evidence for variation between two samples, the tumor and matched normal, from the same individual. The tool can run on unmatched tumors but this produces high rates of false positives. Technically speaking, somatic variants are both (i) different from the control sample and (ii) different from the reference. What this means is that if a site is variant in the control but in the somatic sample reverts to the reference allele, then it is not a somatic variant. (more infor [here](https://software.broadinstitute.org/gatk/documentation/article?id=11127))
+   ![alt text](somaticCall.png)
+   *  **Mutect2 verus HaplotypeCaller**:  Here are some key differences and read more [here](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.beta.4/org_broadinstitute_hellbender_tools_walkers_mutect_Mutect2.php)
+      -  GVCF calling is not a feature of Mutect2. Remember: HaplotypeCaller can call germline variants on one or multiple samples and the tool can use evidence of variation across the samples to increase confidence in a variant call.
+      -  While HaplotypeCaller relies on a fixed ploidy assumption to inform its genotype likelihoods that are the basis for genotype probabilities (PL), Mutect2 allows for varying ploidy in the form of allele fractions for each variant. Varying allele fractions is often seen within a tumor sample due to fractional purity, multiple subclones and/or copy number variation. 
+      -  Mutect2 also differs from the HaplotypeCaller in that it can apply various prefilters to sites and variants depending on the use of a matched normal (--normalSampleName), a panel of normals (PoN; --normal_panel) and/or a common population variant resource containing allele-specific frequencies (--germline_resource). If provided, Mutect2 uses **the PoN to filter sites** and **the germline resource and matched normal to filter alleles**. (iv) Mutect2's default variant site annotations differ from those of HaplotypeCaller. See the --annotation parameter description for a list. (v) Finally, Mutect2 has additional parameters not available to HaplotypeCaller that factor in the decision to reassemble a genomic region, factor in likelihood calculations that then determine whether to emit a variant, or factor towards filtering. These parameters include the following and are each described further in the arguments section.
+*  CalculateContamination: Calculates the fraction of reads coming from cross-sample contamination
+
