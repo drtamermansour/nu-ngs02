@@ -75,11 +75,16 @@ Create two test files
 ```bash
 # Creating test files: ref.28Sep18.793.vcf.gz target.28Sep18.793.vcf.gz
 
+# Cut the first 180 individuals (Reference)
 zcat test.28Sep18.793.vcf.gz | cut -f1-190 | tr '/' '|' | gzip > ref.28Sep18.793.vcf.gz
-zcat test.28Sep18.793.vcf.gz | cut -f1-9,191-200 | gzip > target.28Sep18.793.vcf.gz
 
+# Cut the last 10 individuals (Target)
+zcat test.28Sep18.793.vcf.gz | cut -f1-9,191-200 | gzip > target.28Sep18.793.vcf.gz
 ```
 
+### Data analysis
+
+`java -jar beagle.28Sep18.793.jar gt=test.28Sep18.793.vcf.gz out=out.gt`
 
 
 
