@@ -11,11 +11,10 @@ if not installed type:
 ```bash
 conda activate ngs1
 conda install java-jdk
-```
-
+```code dead asasd
 ## Download Beagle software
 
-`wget -c http://faculty.washington.edu/browning/beagle/bref3.28Sep18.793.jar`
+`wget -c https://faculty.washington.edu/browning/beagle/beagle.28Sep18.793.jar`
 
 ## Download the Data
 
@@ -84,7 +83,24 @@ zcat test.28Sep18.793.vcf.gz | cut -f1-9,191-200 | gzip > target.28Sep18.793.vcf
 
 ### Data analysis
 
+### Running test with gt argument
+
 `java -jar beagle.28Sep18.793.jar gt=test.28Sep18.793.vcf.gz out=out.gt`
+
+### Running the analysis with ref & gt arguments
+
+`java -jar beagle.28Sep18.793.jar ref=ref.28Sep18.793.vcf.gz gt=target.28Sep18.793.vcf.gz out=out.ref`
+
+### Generating bref3 file
+
+`java -jar bref3.28Sep18.793.jar ref.28Sep18.793.vcf.gz > ref.28Sep18.793.bref3`
+
+### Running the analysis using the bref3 file
+
+`java -jar beagle.28Sep18.793.jar ref=ref.28Sep18.793.bref3 gt=target.28Sep18.793.vcf.gz out=out.bref3`
+
+
+
 
 
 
