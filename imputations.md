@@ -13,6 +13,16 @@ conda activate ngs1
 conda install java-jdk
 ```
 
+## Download Beagle software
+
+`wget -c http://faculty.washington.edu/browning/beagle/bref3.28Sep18.793.jar`
+
+## Download the Data
+
+`wget -c http://faculty.washington.edu/browning/beagle/test.28Sep18.793.vcf.gz`
+
+> Description: sample from the 1000 Genome project
+
 ---
 
 ## Software Parameters
@@ -52,6 +62,47 @@ conda install java-jdk
 | nthreads | number of threads         | machine-dependent | 
 | step     | IBS step length (cM       | 0.1               | 
 | nsteps   | number of IBS steps       | 7                 | 
+
+
+---
+
+## Example
+
+### Data Preparation
+
+Create two test files
+
+```bash
+# Creating test files: ref.28Sep18.793.vcf.gz target.28Sep18.793.vcf.gz
+
+zcat test.28Sep18.793.vcf.gz | cut -f1-190 | tr '/' '|' | gzip > ref.28Sep18.793.vcf.gz
+zcat test.28Sep18.793.vcf.gz | cut -f1-9,191-200 | gzip > target.28Sep18.793.vcf.gz
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
