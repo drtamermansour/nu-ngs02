@@ -11,7 +11,8 @@ if not installed type:
 ```bash
 conda activate ngs1
 conda install java-jdk
-```code dead asasd
+```
+
 ## Download Beagle software
 
 `wget -c https://faculty.washington.edu/browning/beagle/beagle.28Sep18.793.jar`
