@@ -18,7 +18,7 @@ tar -zxvf impute_v2.3.2_x86_64_static.tgz
 | -m <file>             | File containing genotypes                                                                                                              | 
 | -h <file 1> <file 2>  | File of known haplotypes, with one row per SNP and one column per haplotype. All alleles must be coded as 0 or 1.                      | 
 | -l <file 1> <file 2>  | Legend file(s) with information about the SNPs in the -h file(s).                                                                      | 
-| -g <file>             | File containing genotypes for a study cohort that you want to impute or phase.                                                         | 
+| [-g](https://mathgen.stats.ox.ac.uk/impute/impute_v2.html#-g) <file>             | File containing genotypes for a study cohort that you want to impute or phase.                                                         | 
 | -strand_g <file>      | File showing the strand orientation of the SNP allele codings in the -g file                                                           | 
 | -int <lower> <upper>  | Genomic interval to use for inference, as specified by <lower> and <upper> boundaries in base pair position                            | 
 | -Ne <int>             | "Effective size" of the population (commonly denoted as Ne in the population genetics literature) from which your dataset was sampled. | 
