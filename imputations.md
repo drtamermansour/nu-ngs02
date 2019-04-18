@@ -31,7 +31,7 @@ conda install java-jdk
 
 |      param     |               Description               |
 |:--------------:|:---------------------------------------:|
-|       gt       |        Input VCF file (required)        |
+|       gt       |        Input VCF file for the study samples (required)        |
 |       ref      | bref3 or VCF file with phased genotypes |
 |       out      |      output file prefix (required)      |
 |       map      |       PLINK map file with cM units      |
