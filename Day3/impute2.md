@@ -4,6 +4,7 @@
 ## Download
 
 ```bash
+mkdir -p ~/impute && cd ~/impute
 wget -c https://mathgen.stats.ox.ac.uk/impute/impute_v2.3.2_x86_64_static.tgz
 tar -zxvf impute_v2.3.2_x86_64_static.tgz
 ```
