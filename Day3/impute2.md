@@ -43,3 +43,17 @@ cd impute_v2.3.2_x86_64_static/
 
 
 ### [Output Description](http://mathgen.stats.ox.ac.uk/impute/concordance_table_description.html)
+
+Let us check what happened
+
+a) Recover the original VCF file before imputation 
+```
+plink --gen Example/example.chr22.study.gens --sample Example/example.study.samples --oxford-single-chr 1 --recode vcf --out Example/example.chr22.study.gens.plink
+```
+b) Convert the final imput2 output to VCF as well
+```
+plink --gen Example/example.chr22.one.phased.impute2 --sample Example/example.study.samples --oxford-single-chr 1 --recode vcf --out Example/example.chr22.one.phased.impute2.plink
+```
+
+Can you check the log files of the Plink processes?
+Check for the no of variants and the genotyping rate?
