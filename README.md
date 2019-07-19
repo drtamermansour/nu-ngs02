@@ -9,7 +9,6 @@
 <li><b>Part 1</b> | Introduction to genetic variants <a href="https://canvas.instructure.com">[Canvas]</a></li>
 <li><b>Part 2</b> | <a href="./Day-1/Crash_variant_calling.md">Crash tutorial for variant calling</a></li>
 </ol>
-
 </details>
 
 <details>
@@ -18,9 +17,7 @@
 <ol>
 <li><b>Part 1</b> | <a href="./Day-2/gatk.md">Tutorial for GATK Variant calling</a></li>
 </ol>
-
 </details>
-
 
 <details>
 <summary>Day 3</summary>
@@ -30,9 +27,7 @@
 <li><b>Part 2</b> | <a href="./Day-3/vcftools.md">Tutorial for VCF-tools</a></li>
 <li><b>Part 2</b> | <a href="./temp/VEP.md">Tutorial for variant annotation</a></li>
 </ol>
-
 </details>
-
 
 <details>
 <summary>Day 4</summary>
@@ -40,7 +35,7 @@
 <ol>
 <li><b>Part 1</b> | GWAS Study design <a href="https://canvas.instructure.com">[Canvas]</a></li>
 <li><b>Part 2</b> | <a href="./Day-4/GWAS.md">Tutorial of Genome Wide Association Analysis</a></li>
-<li><b>Part 3</b> | <a href="./Day-4/meta_GWAS.md">Tutorial of Meta-GWAS/a></li>
+<li><b>Part 3</b> | <a href="./Day-4/meta_GWAS.md">Tutorial of Meta-GWAS</a></li>
 </ol>
 </details>
 
@@ -48,7 +43,7 @@
 <summary>Day 5</summary>
 <br>
 <ol>
-<li><b>Part 1</b> | Phasing & imputation <a href="https://canvas.instructure.com">[Canvas]</a></li> 
+<li><b>Part 1</b> | Phasing and imputation <a href="https://canvas.instructure.com">[Canvas]</a></li>
 <li><b>Part 2</b> | <a href="./Day-5/impute2.md">Tutorial for Impute2</a></li>
 <li><b>Part 3</b> | <a href="./temp/beagle.md">Tutorial for Beagle software</a></li>
 </ol>
