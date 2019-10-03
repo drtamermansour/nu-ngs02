@@ -1,0 +1,500 @@
+geneId	geneSymbol	DSI	DPI	diseaseId	diseaseName	diseaseType	diseaseClass	diseaseSemanticType	score	EI	YearInitial	YearFinal	NofPmids	NofSnps	source
+        1	A1BG	0.857	0.172	C0001418	Adenocarcinoma	group	C04	Neoplastic Process	0.01		2008	2008	   1	   0	LHGDN
+        1	A1BG	0.857	0.172	C0002736	Amyotrophic Lateral Sclerosis	disease	C10;C18	Disease or Syndrome	0.01	1	2009	2009	   1	   0	BEFREE
+        1	A1BG	0.857	0.172	C0013080	Down Syndrome	disease	C10;C16	Disease or Syndrome	0.01	1	2011	2011	   1	   0	BEFREE
+        1	A1BG	0.857	0.172	C0017636	Glioblastoma	disease	C04	Neoplastic Process	0.01	1	2014	2014	   1	   0	BEFREE
+        1	A1BG	0.857	0.172	C0019209	Hepatomegaly	phenotype	C06;C23	Finding	0.30		2017	2017	   1	   0	CTD_human
+        1	A1BG	0.857	0.172	C0036341	Schizophrenia	disease	F03	Mental or Behavioral Dysfunction	0.30		2015	2015	   1	   0	CTD_human
+        2	A2M	0.564	0.724	C0002395	Alzheimer's Disease	disease	C10;F03	Disease or Syndrome	0.40	0.848484848484849	1998	2016	  36	   0	BEFREE;CTD_human;LHGDN
+        2	A2M	0.564	0.724	C0002726	Amyloidosis	disease	C18	Disease or Syndrome	0.04	1	1999	2008	   4	   0	BEFREE;LHGDN
+        2	A2M	0.564	0.724	C0002878	Anemia, Hemolytic	disease	C15	Disease or Syndrome	0.20		2002	2002	   1	   0	RGD
+        2	A2M	0.564	0.724	C0003873	Rheumatoid Arthritis	disease	C05;C17;C20	Disease or Syndrome	0.01	1	1999	1999	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0004096	Asthma	disease	C08;C20	Disease or Syndrome	0.01	1	1993	1993	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0004114	Astrocytoma	disease	C04	Neoplastic Process	0.01	1	1994	1994	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0006142	Malignant neoplasm of breast	disease	C04;C17	Neoplastic Process	0.01	1	2015	2015	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0007102	Malignant tumor of colon	disease	C04;C06	Neoplastic Process	0.30		2004	2004	   1	   0	CTD_human
+        2	A2M	0.564	0.724	C0009375	Colonic Neoplasms	group	C04;C06	Neoplastic Process	0.30		2004	2004	   1	   0	CTD_human
+        2	A2M	0.564	0.724	C0010674	Cystic Fibrosis	disease	C06;C08;C16	Disease or Syndrome	0.03	1	1980	1984	   3	   0	BEFREE
+        2	A2M	0.564	0.724	C0011265	Presenile dementia	disease	C10;F03	Mental or Behavioral Dysfunction	0.30		1998	2004	   3	   0	CTD_human
+        2	A2M	0.564	0.724	C0011570	Mental Depression	disease	F01	Mental or Behavioral Dysfunction	0.31	1	1987	2000	   2	   0	BEFREE;PSYGENET
+        2	A2M	0.564	0.724	C0011581	Depressive disorder	disease	F03	Mental or Behavioral Dysfunction	0.31	1	1987	2000	   2	   0	BEFREE;PSYGENET
+        2	A2M	0.564	0.724	C0011847	Diabetes	disease		Disease or Syndrome	0.01	1	2013	2013	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0011849	Diabetes Mellitus	group	C18;C19	Disease or Syndrome	0.01	1	2013	2013	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0013080	Down Syndrome	disease	C10;C16	Disease or Syndrome	0.01	1	1980	1980	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0017665	Membranous glomerulonephritis	disease	C12;C13;C20	Disease or Syndrome	0.20		1998	1998	   1	   0	RGD
+        2	A2M	0.564	0.724	C0019202	Hepatolenticular Degeneration	disease	C06;C10;C16;C18	Disease or Syndrome	0.30		2013	2013	   1	   0	CTD_human
+        2	A2M	0.564	0.724	C0019243	Angioedemas, Hereditary	group	C14;C16;C17;C20	Disease or Syndrome	0.01	0	1996	1996	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0022578	Keratoconus	disease	C11	Disease or Syndrome	0.01	0	2001	2001	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0022595	Keratosis Follicularis	disease	C16;C17	Disease or Syndrome	0.01	1	2004	2004	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0022660	Kidney Failure, Acute	disease	C12;C13	Disease or Syndrome	0.30		2013	2013	   1	   0	CTD_human
+        2	A2M	0.564	0.724	C0023827	liposarcoma	disease	C04	Neoplastic Process	0.01	1	2003	2003	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0023890	Liver Cirrhosis	disease	C06	Disease or Syndrome	0.30		2016	2016	   1	   0	CTD_human
+        2	A2M	0.564	0.724	C0023893	Liver Cirrhosis, Experimental	disease	C06	Experimental Model of Disease	0.30		2015	2015	   1	   0	CTD_human
+        2	A2M	0.564	0.724	C0023903	Liver neoplasms	group	C04;C06	Neoplastic Process	0.02	0.5	1991	2001	   2	   0	BEFREE
+        2	A2M	0.564	0.724	C0024115	Lung diseases	group	C08	Disease or Syndrome	0.32	0.5	1983	1989	   2	   0	BEFREE;CTD_human
+        2	A2M	0.564	0.724	C0024117	Chronic Obstructive Airway Disease	disease	C08	Disease or Syndrome	0.01	1	2012	2012	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0024121	Lung Neoplasms	group	C04;C08	Neoplastic Process	0.30		2008	2009	   2	   0	CTD_human
+        2	A2M	0.564	0.724	C0025202	melanoma	disease	C04	Neoplastic Process	0.03	1	1984	1990	   3	   0	BEFREE
+        2	A2M	0.564	0.724	C0026769	Multiple Sclerosis	disease	C10;C20	Disease or Syndrome	0.02	1	2001	2004	   2	   0	BEFREE;LHGDN
+        2	A2M	0.564	0.724	C0027051	Myocardial Infarction	disease	C14	Disease or Syndrome	0.01		2008	2008	   1	   0	LHGDN
+        2	A2M	0.564	0.724	C0027430	Nasal Polyps	disease	C08;C09;C23	Disease or Syndrome	0.01	1	2015	2015	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0027627	Neoplasm Metastasis	phenotype	C04;C23	Neoplastic Process	0.03	1	1996	2015	   3	   0	BEFREE
+        2	A2M	0.564	0.724	C0027726	Nephrotic Syndrome	group	C12;C13	Disease or Syndrome	0.51	1	1998	2001	   2	   0	BEFREE;CTD_human;RGD
+        2	A2M	0.564	0.724	C0028754	Obesity	disease	C18;C23	Disease or Syndrome	0.01	1	2006	2006	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0029408	Degenerative polyarthritis	disease	C05	Disease or Syndrome	0.01	1	2012	2012	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0029823	Other specified peritonitis	disease		Disease or Syndrome	0.20		2006	2006	   1	   0	RGD
+        2	A2M	0.564	0.724	C0030305	Pancreatitis	disease	C06	Disease or Syndrome	0.01		2005	2005	   1	   0	LHGDN
+        2	A2M	0.564	0.724	C0033578	Prostatic Neoplasms	group	C04;C12	Neoplastic Process	0.01		2005	2005	   1	   0	LHGDN
+        2	A2M	0.564	0.724	C0034067	Pulmonary Emphysema	disease	C08	Disease or Syndrome	0.02	0.5	1983	2015	   2	   0	BEFREE
+        2	A2M	0.564	0.724	C0038454	Cerebrovascular accident	group	C10;C14	Disease or Syndrome	0.01	1	2007	2007	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0040038	Thromboembolism	phenotype	C14	Pathologic Function	0.01		2007	2007	   1	   0	LHGDN
+        2	A2M	0.564	0.724	C0041227	Trypanosomiasis	disease	C03	Disease or Syndrome	0.20		2007	2007	   1	   0	RGD
+        2	A2M	0.564	0.724	C0042024	Urinary Incontinence	phenotype	C12;C13;C23	Pathologic Function	0.01		2008	2008	   1	   0	LHGDN
+        2	A2M	0.564	0.724	C0085220	Cerebral Amyloid Angiopathy	disease	C10;C14;C18	Disease or Syndrome	0.01	1	1999	1999	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0149871	Deep Vein Thrombosis	disease	C14	Disease or Syndrome	0.01	1	2007	2007	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0153690	Secondary malignant neoplasm of bone	disease		Neoplastic Process	0.01	0	2012	2012	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0206669	Hepatocellular Adenoma	disease	C04;C06	Neoplastic Process	0.50		2004	2004	   1	   0	CTD_human;RGD
+        2	A2M	0.564	0.724	C0220726	Diastrophic dysplasia	disease	C05;C16;C19	Congenital Abnormality	0.01	1	2004	2004	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0221757	alpha 1-Antitrypsin Deficiency	disease	C06;C08;C16;C23	Disease or Syndrome	0.02	0.5	1981	1983	   2	   0	BEFREE
+        2	A2M	0.564	0.724	C0238096	Embolism, Paradoxical	disease	C14	Disease or Syndrome	0.01	1	2007	2007	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0239946	Fibrosis, Liver	disease	C06	Disease or Syndrome	0.30		2016	2016	   1	   0	CTD_human
+        2	A2M	0.564	0.724	C0239981	Hypoalbuminemia	disease	C15	Disease or Syndrome	0.01	1	1998	1998	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0242379	Malignant neoplasm of lung	disease	C04;C08	Neoplastic Process	0.30		2008	2009	   2	   0	CTD_human
+        2	A2M	0.564	0.724	C0268398	Familial lichen amyloidosis	disease	C16;C17;C18	Disease or Syndrome	0.01	1	2012	2012	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0276496	Familial Alzheimer Disease (FAD)	disease	C10;F03	Disease or Syndrome	0.30		1998	2004	   3	   0	CTD_human
+        2	A2M	0.564	0.724	C0279607	Adult Hepatocellular Carcinoma	disease		Neoplastic Process	0.20		2004	2004	   1	   0	RGD
+        2	A2M	0.564	0.724	C0333463	Senile Plaques	phenotype	C23	Acquired Abnormality	0.02	1	2000	2016	   2	   0	BEFREE
+        2	A2M	0.564	0.724	C0338460	Argyrophilic grain disease	disease		Disease or Syndrome	0.01	1	2002	2002	   1	   1	BEFREE
+        2	A2M	0.564	0.724	C0376358	Malignant neoplasm of prostate	disease	C04;C12	Neoplastic Process	0.04	0.75	2009	2015	   4	   0	BEFREE
+        2	A2M	0.564	0.724	C0398623	Thrombophilia	disease	C15	Disease or Syndrome	0.01	1	2007	2007	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0494463	Alzheimer Disease, Late Onset	disease	C10;F03	Mental or Behavioral Dysfunction	0.31	1	1998	2005	   4	   0	BEFREE;CTD_human
+        2	A2M	0.564	0.724	C0497406	Overweight	phenotype	C23	Finding	0.01	1	2006	2006	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0524851	Neurodegenerative Disorders	group	C10	Disease or Syndrome	0.01	1	2001	2001	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0546126	Acute Confusional Senile Dementia	disease	C10;F03	Mental or Behavioral Dysfunction	0.30		1998	2004	   3	   0	CTD_human
+        2	A2M	0.564	0.724	C0600139	Prostate carcinoma	disease		Neoplastic Process	0.04	0.75	2009	2015	   4	   0	BEFREE
+        2	A2M	0.564	0.724	C0600260	Lung Diseases, Obstructive	group	C08	Disease or Syndrome	0.01	1	1983	1983	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0600327	Toxic Shock Syndrome	disease	C01;C23	Disease or Syndrome	0.20		1986	1986	   1	   0	RGD
+        2	A2M	0.564	0.724	C0678222	Breast Carcinoma	disease	C04;C17	Neoplastic Process	0.01	1	2015	2015	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0746102	Chronic lung disease	group		Disease or Syndrome	0.01	1	1989	1989	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0750900	Alzheimer's Disease, Focal Onset	disease	C10;F03	Mental or Behavioral Dysfunction	0.30		1998	2004	   3	   0	CTD_human
+        2	A2M	0.564	0.724	C0750901	Alzheimer Disease, Early Onset	disease	C10;F03	Disease or Syndrome	0.30		1998	2004	   3	   0	CTD_human
+        2	A2M	0.564	0.724	C0752347	Lewy Body Disease	disease	C10;F03	Disease or Syndrome	0.01	1	2004	2004	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0867389	Chronic graft-versus-host disease	disease		Disease or Syndrome	0.01	1	2010	2010	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C0948008	Ischemic stroke	disease		Disease or Syndrome	0.01	1	2007	2007	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C1527352	Hepatic Form of Wilson Disease	disease	C06;C10;C16;C18	Disease or Syndrome	0.30		2013	2013	   1	   0	CTD_human
+        2	A2M	0.564	0.724	C1565662	Acute Kidney Insufficiency	disease	C12;C13	Disease or Syndrome	0.30		2013	2013	   1	   0	CTD_human
+        2	A2M	0.564	0.724	C1704272	Benign Prostatic Hyperplasia	disease	C12	Disease or Syndrome	0.01	1	2005	2005	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C1842937	AURAL ATRESIA, CONGENITAL	disease	C16	Disease or Syndrome	0.01	0	1999	1999	   1	   0	BEFREE
+        2	A2M	0.564	0.724	C2239176	Liver carcinoma	disease	C04;C06	Neoplastic Process	0.33	0.666666666666667	1991	2004	   4	   0	BEFREE;CTD_human
+        2	A2M	0.564	0.724	C2609414	Acute kidney injury	disease	C12;C13	Injury or Poisoning	0.30		2013	2013	   1	   0	CTD_human
+        2	A2M	0.564	0.724	C2936349	Plaque, Amyloid	phenotype	C23	Acquired Abnormality	0.03	1	1998	2016	   3	   0	BEFREE
+        2	A2M	0.564	0.724	C2937421	Prostatic Hyperplasia	disease	C12	Disease or Syndrome	0.01		2005	2005	   1	   0	LHGDN
+        2	A2M	0.564	0.724	C3279661	alpha-2-Macroglobulin Deficiency	disease	C08	Disease or Syndrome	0.31	1	1989	1989	   1	   0	BEFREE;CTD_human
+        2	A2M	0.564	0.724	C3501835	alpha-1-Antitrypsin Deficiency, Autosomal Recessive	disease	C06;C08;C16;C23	Disease or Syndrome	0.02	0.5	1981	1983	   2	   0	BEFREE
+        9	NAT1	0.564	0.724	C0000768	Congenital Abnormality	group	C16	Congenital Abnormality	0.01	1	2008	2008	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0001418	Adenocarcinoma	group	C04	Neoplastic Process	0.01		2003	2003	   1	   0	LHGDN
+        9	NAT1	0.564	0.724	C0001430	Adenoma	group	C04	Neoplastic Process	0.03	1	1996	2012	   3	   1	BEFREE
+        9	NAT1	0.564	0.724	C0001973	Alcoholic Intoxication, Chronic	disease	C25;F03	Mental or Behavioral Dysfunction	0.31	1	2000	2000	   1	   0	BEFREE;PSYGENET
+        9	NAT1	0.564	0.724	C0004096	Asthma	disease	C08;C20	Disease or Syndrome	0.01		2002	2002	   1	   0	LHGDN
+        9	NAT1	0.564	0.724	C0004403	Autosome Abnormalities	group	C23	Cell or Molecular Dysfunction	0.30		2006	2006	   1	   0	CTD_human
+        9	NAT1	0.564	0.724	C0005684	Malignant neoplasm of urinary bladder	disease	C04;C12;C13	Neoplastic Process	0.40	0.9	1996	2018	  20	   0	BEFREE;CTD_human
+        9	NAT1	0.564	0.724	C0005695	Bladder Neoplasm	group	C04;C12;C13	Neoplastic Process	0.40	0.904761904761905	1996	2018	  23	   0	BEFREE;CTD_human;LHGDN
+        9	NAT1	0.564	0.724	C0006142	Malignant neoplasm of breast	disease	C04;C17	Neoplastic Process	0.10	0.928571428571429	1999	2015	  14	   0	BEFREE
+        9	NAT1	0.564	0.724	C0006826	Malignant Neoplasms	group	C04	Neoplastic Process	0.30		2001	2001	   1	   0	CTD_human
+        9	NAT1	0.564	0.724	C0006840	Candidiasis	disease	C01	Disease or Syndrome	0.01	1	2015	2015	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0007102	Malignant tumor of colon	disease	C04;C06	Neoplastic Process	0.03	1	1999	2008	   3	   0	BEFREE
+        9	NAT1	0.564	0.724	C0007137	Squamous cell carcinoma	disease	C04	Neoplastic Process	0.03	1	1998	2016	   3	   0	BEFREE
+        9	NAT1	0.564	0.724	C0008625	Chromosome Aberrations	group	C23	Cell or Molecular Dysfunction	0.30		2006	2006	   1	   0	CTD_human
+        9	NAT1	0.564	0.724	C0008626	Congenital chromosomal disease	group	C16	Congenital Abnormality	0.01	1	1998	1998	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0009324	Ulcerative Colitis	disease	C06	Disease or Syndrome	0.01	0	2002	2002	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0009402	Colorectal Carcinoma	disease	C04;C06	Neoplastic Process	0.10	0.545454545454545	1995	2013	  11	   0	BEFREE
+        9	NAT1	0.564	0.724	C0009404	Colorectal Neoplasms	group	C04;C06	Neoplastic Process	0.05	1	1996	2008	   5	   0	BEFREE;LHGDN
+        9	NAT1	0.564	0.724	C0013221	Drug toxicity	group	C25	Injury or Poisoning	0.30		2001	2001	   1	   0	CTD_human
+        9	NAT1	0.564	0.724	C0019163	Hepatitis B	disease	C02;C06	Disease or Syndrome	0.01	1	2010	2010	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0021368	Inflammation	phenotype	C23	Pathologic Function	0.01		2007	2007	   1	   0	LHGDN
+        9	NAT1	0.564	0.724	C0023055	Laryngeal neoplasm	disease	C04;C08;C09	Neoplastic Process	0.01		2002	2002	   1	   0	LHGDN
+        9	NAT1	0.564	0.724	C0023418	leukemia	disease	C04	Neoplastic Process	0.01		2002	2002	   1	   0	LHGDN
+        9	NAT1	0.564	0.724	C0023434	Chronic Lymphocytic Leukemia	disease	C04;C15;C20	Neoplastic Process	0.01	1	2017	2017	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0023449	Acute lymphocytic leukemia	disease		Neoplastic Process	0.01	0	2000	2000	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0023487	Acute Promyelocytic Leukemia	disease	C04	Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0024121	Lung Neoplasms	group	C04;C08	Neoplastic Process	0.01	1	2002	2002	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0024141	Lupus Erythematosus, Systemic	disease	C17;C20	Disease or Syndrome	0.01	0	2004	2004	   1	   0	BEFREE;LHGDN
+        9	NAT1	0.564	0.724	C0024299	Lymphoma	group	C04;C15;C20	Neoplastic Process	0.02	1	2013	2017	   2	   0	BEFREE
+        9	NAT1	0.564	0.724	C0024301	Lymphoma, Follicular	disease	C04;C15;C20	Neoplastic Process	0.01	1	2010	2010	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0024305	Lymphoma, Non-Hodgkin	disease	C04;C15;C20	Neoplastic Process	0.06	0.833333333333333	2006	2017	   6	   0	BEFREE;LHGDN
+        9	NAT1	0.564	0.724	C0024623	Malignant neoplasm of stomach	disease	C04;C06	Neoplastic Process	0.02	1	2000	2002	   2	   0	BEFREE
+        9	NAT1	0.564	0.724	C0026764	Multiple Myeloma	disease	C04;C14;C15;C20	Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0026769	Multiple Sclerosis	disease	C10;C20	Disease or Syndrome	0.01	1	2015	2015	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0027651	Neoplasms	group	C04	Neoplastic Process	0.30		2001	2001	   1	   0	CTD_human
+        9	NAT1	0.564	0.724	C0027819	Neuroblastoma	group	C04	Neoplastic Process	0.01	1	2007	2007	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0028796	Dermatitis, Occupational	disease	C17;C24	Disease or Syndrome	0.30		2010	2010	   1	   0	CTD_human
+        9	NAT1	0.564	0.724	C0032580	Adenomatous Polyposis Coli	disease	C04;C06;C16	Neoplastic Process	0.01	0	2004	2004	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0032584	polyps	phenotype	C23	Anatomical Abnormality	0.02	0.5	2004	2008	   2	   0	BEFREE
+        9	NAT1	0.564	0.724	C0033578	Prostatic Neoplasms	group	C04;C12	Neoplastic Process	0.32	1	2002	2005	   3	   0	BEFREE;CTD_human;LHGDN
+        9	NAT1	0.564	0.724	C0033860	Psoriasis	disease	C17	Disease or Syndrome	0.01		2004	2004	   1	   0	LHGDN
+        9	NAT1	0.564	0.724	C0041755	Adverse reaction to drug	group	C25	Pathologic Function	0.30		2001	2001	   1	   0	CTD_human
+        9	NAT1	0.564	0.724	C0079772	T-Cell Lymphoma	disease	C04;C15;C20	Neoplastic Process	0.01	1	2010	2010	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0080178	Spina Bifida	disease	C10;C16	Congenital Abnormality	0.03	1	2005	2007	   3	   0	BEFREE;LHGDN
+        9	NAT1	0.564	0.724	C0086457	Industrial Dermatosis	disease	C17;C24	Disease or Syndrome	0.30		2010	2010	   1	   0	CTD_human
+        9	NAT1	0.564	0.724	C0086692	Benign Neoplasm	group	C04	Neoplastic Process	0.30		2001	2001	   1	   0	CTD_human
+        9	NAT1	0.564	0.724	C0153381	Malignant neoplasm of mouth	disease	C04;C07	Neoplastic Process	0.01	1	1998	1998	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0206698	Cholangiocarcinoma	disease	C04	Neoplastic Process	0.01		2007	2007	   1	   0	LHGDN
+        9	NAT1	0.564	0.724	C0220641	Lip and Oral Cavity Carcinoma	disease		Neoplastic Process	0.01	1	1998	1998	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0220810	Congenital defects	group		Congenital Abnormality	0.01	1	2008	2008	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0235974	Pancreatic carcinoma	disease	C04;C06;C19	Neoplastic Process	0.03	0.666666666666667	2007	2008	   3	   0	BEFREE
+        9	NAT1	0.564	0.724	C0238033	Carcinoma of Male Breast	disease	C04;C17	Neoplastic Process	0.01	1	2013	2013	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0242379	Malignant neoplasm of lung	disease	C04;C08	Neoplastic Process	0.04	1	1998	2008	   4	   0	BEFREE
+        9	NAT1	0.564	0.724	C0242787	Malignant neoplasm of male breast	disease		Neoplastic Process	0.01	1	2013	2013	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0264423	Asthma, Occupational	disease	C08;C20;C24	Disease or Syndrome	0.01	1	2008	2008	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0268398	Familial lichen amyloidosis	disease	C16;C17;C18	Disease or Syndrome	0.01	1	1999	1999	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0278701	Gastric Adenocarcinoma	disease		Neoplastic Process	0.02	1	2000	2000	   2	   0	BEFREE
+        9	NAT1	0.564	0.724	C0281361	Adenocarcinoma of pancreas	disease		Neoplastic Process	0.01	1	2007	2007	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0333983	Hyperplastic Polyp	disease		Neoplastic Process	0.02	1	2007	2008	   2	   0	BEFREE
+        9	NAT1	0.564	0.724	C0338106	Adenocarcinoma of colon	disease		Neoplastic Process	0.01	1	2012	2012	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0346647	Malignant neoplasm of pancreas	disease	C04;C06;C19	Neoplastic Process	0.04	0.75	2001	2008	   4	   0	BEFREE
+        9	NAT1	0.564	0.724	C0376358	Malignant neoplasm of prostate	disease	C04;C12	Neoplastic Process	0.34	0.75	1999	2010	   5	   0	BEFREE;CTD_human
+        9	NAT1	0.564	0.724	C0546837	Malignant neoplasm of esophagus	disease	C04;C06	Neoplastic Process	0.01	1	2016	2016	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0596263	Carcinogenesis	phenotype	C04;C23	Neoplastic Process	0.07	1	1995	2007	   7	   0	BEFREE
+        9	NAT1	0.564	0.724	C0598766	Leukemogenesis	disease		Neoplastic Process	0.01	1	2000	2000	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0600139	Prostate carcinoma	disease		Neoplastic Process	0.04	0.75	1999	2010	   4	   0	BEFREE
+        9	NAT1	0.564	0.724	C0678222	Breast Carcinoma	disease	C04;C17	Neoplastic Process	0.10	0.928571428571429	1999	2015	  14	   0	BEFREE
+        9	NAT1	0.564	0.724	C0684249	Carcinoma of lung	disease		Neoplastic Process	0.04	1	1998	2008	   4	   0	BEFREE
+        9	NAT1	0.564	0.724	C0699790	Colon Carcinoma	disease		Neoplastic Process	0.03	1	1999	2008	   3	   0	BEFREE
+        9	NAT1	0.564	0.724	C0699791	Stomach Carcinoma	disease		Neoplastic Process	0.02	1	2000	2002	   2	   0	BEFREE
+        9	NAT1	0.564	0.724	C0699885	Carcinoma of bladder	disease		Neoplastic Process	0.10	0.894736842105263	1996	2018	  19	   0	BEFREE
+        9	NAT1	0.564	0.724	C0700095	Central neuroblastoma	disease		Neoplastic Process	0.01	1	2007	2007	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0747845	early pregnancy	phenotype		Disease or Syndrome	0.01	1	2004	2004	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0751688	Malignant Squamous Cell Neoplasm	disease	C04	Neoplastic Process	0.01	1	2001	2001	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0920506	Environment-Related Malignant Neoplasm	disease		Neoplastic Process	0.01	1	1998	1998	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C0949059	Polyp of large intestine	disease		Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C1168401	Squamous cell carcinoma of the head and neck	disease	C04	Neoplastic Process	0.01	1	2000	2000	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C1302401	Adenoma of large intestine	disease		Neoplastic Process	0.03	0.666666666666667	1996	2013	   3	   1	BEFREE
+        9	NAT1	0.564	0.724	C1302547	Chronic Lymphocytic Leukemia/Small Lymphocytic Lymphoma	disease		Neoplastic Process	0.01	1	2010	2010	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C1306460	Primary malignant neoplasm of lung	disease		Neoplastic Process	0.04	1	1998	2008	   4	   0	BEFREE
+        9	NAT1	0.564	0.724	C1319315	Adenocarcinoma of large intestine	disease		Neoplastic Process	0.01	1	2000	2000	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C1458155	Mammary Neoplasms	group	C04;C17	Neoplastic Process	0.04	0.5	2003	2008	   4	   0	BEFREE;LHGDN
+        9	NAT1	0.564	0.724	C1527249	Colorectal Cancer	disease	C04;C06	Neoplastic Process	0.10	0.545454545454545	1995	2013	  11	   0	BEFREE
+        9	NAT1	0.564	0.724	C1827377	Slow acetylator due to N-acetyltransferase enzyme variant	disease		Disease or Syndrome	0.02	1	2002	2017	   2	   0	BEFREE
+        9	NAT1	0.564	0.724	C1827820	Fast acetylator due to N-acetyltransferase enzyme variant	disease		Disease or Syndrome	0.03	0.666666666666667	1996	2016	   3	   1	BEFREE
+        9	NAT1	0.564	0.724	C1840311	Laryngeal cleft	disease	C16	Congenital Abnormality	0.01	0	2005	2005	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C2239176	Liver carcinoma	disease	C04;C06	Neoplastic Process	0.01	1	2000	2000	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C3266076	Orofacial cleft	disease		Congenital Abnormality	0.01	1	2004	2004	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C3539909	Allergic disposition	phenotype		Finding	0.01	1	2000	2000	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C3642345	Luminal A Breast Carcinoma	disease		Neoplastic Process	0.01	1	2015	2015	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C3662483	Allergic sensitization	disease		Disease or Syndrome	0.01	1	2010	2010	   1	   0	BEFREE
+        9	NAT1	0.564	0.724	C4086165	Childhood Neuroblastoma	disease		Neoplastic Process	0.01	1	2007	2007	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0001175	Acquired Immunodeficiency Syndrome	group	C02;C20	Disease or Syndrome	0.01	1	1997	1997	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0001418	Adenocarcinoma	group	C04	Neoplastic Process	0.02	1	2000	2001	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0001430	Adenoma	group	C04	Neoplastic Process	0.07	0.857142857142857	1995	2013	   7	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0002395	Alzheimer's Disease	disease	C10;F03	Disease or Syndrome	0.02	1	2001	2005	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0002871	Anemia	disease	C15	Disease or Syndrome	0.01	1	2014	2014	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0002893	Refractory anemias	disease	C15	Disease or Syndrome	0.01	1	2006	2006	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0003873	Rheumatoid Arthritis	disease	C05;C17;C20	Disease or Syndrome	0.08	1	2002	2012	   8	   3	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0004096	Asthma	disease	C08;C20	Disease or Syndrome	0.04	0.75	2003	2013	   4	   2	BEFREE
+       10	NAT2	0.466	0.828	C0004114	Astrocytoma	disease	C04	Neoplastic Process	0.02	1	2008	2008	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0004943	Behcet Syndrome	disease	C07;C11;C14;C16;C17	Disease or Syndrome	0.01	0	2002	2002	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0005684	Malignant neoplasm of urinary bladder	disease	C04;C12;C13	Neoplastic Process	0.40	0.964285714285714	1996	2017	  61	   0	BEFREE;CTD_human
+       10	NAT2	0.466	0.828	C0005695	Bladder Neoplasm	group	C04;C12;C13	Neoplastic Process	0.40	0.972972972972973	1995	2017	  81	   0	BEFREE;CTD_human;LHGDN
+       10	NAT2	0.466	0.828	C0006118	Brain Neoplasms	group	C04;C10	Neoplastic Process	0.02	1	2006	2008	   2	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0006142	Malignant neoplasm of breast	disease	C04;C17	Neoplastic Process	0.40	0.914285714285714	1996	2017	  35	   3	BEFREE;CTD_human
+       10	NAT2	0.466	0.828	C0006840	Candidiasis	disease	C01	Disease or Syndrome	0.01	1	2015	2015	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0007102	Malignant tumor of colon	disease	C04;C06	Neoplastic Process	0.10	0.909090909090909	1995	2018	  11	   0	BEFREE
+       10	NAT2	0.466	0.828	C0007104	Female Breast Carcinoma	disease		Neoplastic Process	0.01	1	2000	2000	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0007107	Malignant neoplasm of larynx	disease	C04;C08;C09	Neoplastic Process	0.01	1	2011	2011	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0007113	Rectal Carcinoma	disease	C04;C06	Neoplastic Process	0.04	0.75	2002	2004	   4	   0	BEFREE
+       10	NAT2	0.466	0.828	C0007115	Malignant neoplasm of thyroid	disease		Neoplastic Process	0.01	1	2009	2009	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0007131	Non-Small Cell Lung Carcinoma	disease	C04;C08	Neoplastic Process	0.01	1	2009	2009	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0007134	Renal Cell Carcinoma	disease	C04;C12;C13	Neoplastic Process	0.01	1	1999	1999	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0007137	Squamous cell carcinoma	disease	C04	Neoplastic Process	0.06	1	2000	2016	   6	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0007847	Malignant tumor of cervix	disease		Neoplastic Process	0.01	1	2003	2003	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0008350	Cholelithiasis	disease	C06	Disease or Syndrome	0.01	0	2007	2007	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0008626	Congenital chromosomal disease	group	C16	Congenital Abnormality	0.04	1	1998	2011	   4	   0	BEFREE
+       10	NAT2	0.466	0.828	C0008924	Cleft upper lip	disease	C07;C16	Congenital Abnormality	0.01		2008	2008	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C0009324	Ulcerative Colitis	disease	C06	Disease or Syndrome	0.02	0.5	2002	2005	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0009375	Colonic Neoplasms	group	C04;C06	Neoplastic Process	0.01	1	2003	2003	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0009402	Colorectal Carcinoma	disease	C04;C06	Neoplastic Process	0.10	0.944444444444444	1993	2016	  36	   3	BEFREE
+       10	NAT2	0.466	0.828	C0009404	Colorectal Neoplasms	group	C04;C06	Neoplastic Process	0.10	1	1996	2008	  11	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0010054	Coronary Arteriosclerosis	disease	C14	Disease or Syndrome	0.30		2011	2011	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0010346	Crohn Disease	disease	C06	Disease or Syndrome	0.01	1	2005	2005	   1	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0011268	Senile dementia	disease		Mental or Behavioral Dysfunction	0.01	1	2005	2005	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0011269	Dementia, Vascular	disease	C10;C14;F03	Disease or Syndrome	0.01	1	2005	2005	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0011615	Dermatitis, Atopic	disease	C16;C17;C20	Disease or Syndrome	0.01		2006	2006	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C0011847	Diabetes	disease		Disease or Syndrome	0.02	1	2008	2015	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0011849	Diabetes Mellitus	group	C18;C19	Disease or Syndrome	0.03	1	2007	2015	   3	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0011854	Diabetes Mellitus, Insulin-Dependent	disease	C18;C19;C20	Disease or Syndrome	0.01	1	1995	1995	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0011860	Diabetes Mellitus, Non-Insulin-Dependent	disease	C18;C19	Disease or Syndrome	0.01	1	1995	1995	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0011881	Diabetic Nephropathy	disease	C12;C13;C19	Disease or Syndrome	0.01	1	1995	1995	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0011999	Diastematomyelia	disease	C10;C16	Congenital Abnormality	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0013182	Drug Allergy	phenotype	C20;C25	Pathologic Function	0.31	1	2010	2013	   4	   0	BEFREE;CTD_human
+       10	NAT2	0.466	0.828	C0013221	Drug toxicity	group	C25	Injury or Poisoning	0.30		2007	2007	   2	   0	CTD_human
+       10	NAT2	0.466	0.828	C0014175	Endometriosis	disease	C13	Disease or Syndrome	0.05	0.8	1999	2008	   5	   0	BEFREE
+       10	NAT2	0.466	0.828	C0014544	Epilepsy	disease	C10	Disease or Syndrome	0.01	1	2013	2013	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0014859	Esophageal Neoplasms	group	C04;C06	Neoplastic Process	0.03	1	2002	2014	   3	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0015230	Exanthema	phenotype	C17	Sign or Symptom	0.03	0.333333333333333	2008	2013	   3	   0	BEFREE
+       10	NAT2	0.466	0.828	C0016034	Breast Fibrocystic Disease	disease	C17	Disease or Syndrome	0.01	1	2007	2007	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0016978	gallbladder neoplasm	disease	C04;C06	Neoplastic Process	0.01		2007	2007	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C0017551	Gilbert Disease (disorder)	disease	C16;C18	Disease or Syndrome	0.01	1	2006	2006	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0017563	Gingival Diseases	group	C07	Disease or Syndrome	0.03	1	2001	2008	   3	   0	BEFREE
+       10	NAT2	0.466	0.828	C0017636	Glioblastoma	disease	C04	Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0017638	Glioma	disease	C04	Neoplastic Process	0.01	1	1998	1998	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0018671	Head and Neck Neoplasms	group	C04	Neoplastic Process	0.01		2007	2007	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C0019158	Hepatitis	disease	C06	Disease or Syndrome	0.04	0.666666666666667	1997	2011	   4	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0019159	Hepatitis A	disease	C02;C06	Disease or Syndrome	0.03	0.666666666666667	1997	2011	   3	   0	BEFREE
+       10	NAT2	0.466	0.828	C0019163	Hepatitis B	disease	C02;C06	Disease or Syndrome	0.01	1	2005	2005	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0019193	Hepatitis, Toxic	disease	C06;C25	Injury or Poisoning	0.30		2002	2016	   4	   0	CTD_human
+       10	NAT2	0.466	0.828	C0019693	HIV Infections	group	C02;C20	Disease or Syndrome	0.02	1	1996	1997	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0020179	Huntington Disease	disease	C10;C16;F03	Disease or Syndrome	0.01	1	1997	1997	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0020538	Hypertensive disease	group	C14	Disease or Syndrome	0.01	1	2015	2015	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0021364	Male infertility	disease	C12	Disease or Syndrome	0.03	1	2015	2018	   3	   2	BEFREE
+       10	NAT2	0.466	0.828	C0021390	Inflammatory Bowel Diseases	group	C06	Disease or Syndrome	0.02	1	2008	2011	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0022661	Kidney Failure, Chronic	disease	C12;C13	Disease or Syndrome	0.20		2010	2010	   1	   0	RGD
+       10	NAT2	0.466	0.828	C0023055	Laryngeal neoplasm	disease	C04;C08;C09	Neoplastic Process	0.02		2002	2002	   2	   0	LHGDN
+       10	NAT2	0.466	0.828	C0023418	leukemia	disease	C04	Neoplastic Process	0.04	0.666666666666667	1999	2012	   4	   1	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0023434	Chronic Lymphocytic Leukemia	disease	C04;C15;C20	Neoplastic Process	0.01	1	2017	2017	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0023449	Acute lymphocytic leukemia	disease		Neoplastic Process	0.02	0.5	2000	2001	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0023452	Childhood Acute Lymphoblastic Leukemia	disease	C04;C15;C20	Neoplastic Process	0.32	1	2012	2015	   3	   0	BEFREE;CTD_human
+       10	NAT2	0.466	0.828	C0023453	Leukemia, Lymphocytic, Acute, L2	disease	C04;C15;C20	Neoplastic Process	0.30		2012	2012	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0023467	Leukemia, Myelocytic, Acute	disease	C04	Neoplastic Process	0.01	1	2017	2017	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0023470	Myeloid Leukemia	disease	C04	Neoplastic Process	0.01	1	2012	2012	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0023530	Leukopenia	disease	C15	Disease or Syndrome	0.30		2004	2004	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0023532	Leukoplakia, Oral	disease	C04;C07;C23	Neoplastic Process	0.01	1	2007	2007	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0023891	Liver Cirrhosis, Alcoholic	disease	C06;C25	Disease or Syndrome	0.01	1	2012	2012	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0023895	Liver diseases	group	C06	Disease or Syndrome	0.01	1	2012	2012	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0023903	Liver neoplasms	group	C04;C06	Neoplastic Process	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0024115	Lung diseases	group	C08	Disease or Syndrome	0.01	1	1997	1997	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0024117	Chronic Obstructive Airway Disease	disease	C08	Disease or Syndrome	0.02	1	2004	2007	   2	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0024121	Lung Neoplasms	group	C04;C08	Neoplastic Process	0.03		2005	2007	   3	   0	LHGDN
+       10	NAT2	0.466	0.828	C0024141	Lupus Erythematosus, Systemic	disease	C17;C20	Disease or Syndrome	0.04	0.75	2004	2014	   4	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0024299	Lymphoma	group	C04;C15;C20	Neoplastic Process	0.03	1	2013	2017	   3	   0	BEFREE
+       10	NAT2	0.466	0.828	C0024301	Lymphoma, Follicular	disease	C04;C15;C20	Neoplastic Process	0.01	1	2017	2017	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0024305	Lymphoma, Non-Hodgkin	disease	C04;C15;C20	Neoplastic Process	0.09	0.888888888888889	2002	2017	   9	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0024623	Malignant neoplasm of stomach	disease	C04;C06	Neoplastic Process	0.06	1	2000	2014	   6	   0	BEFREE
+       10	NAT2	0.466	0.828	C0025286	Meningioma	disease	C04;C10	Neoplastic Process	0.01	1	2006	2006	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0026640	Mouth Neoplasms	group	C04;C07	Neoplastic Process	0.01		2008	2008	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C0026764	Multiple Myeloma	disease	C04;C14;C15;C20	Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0026848	Myopathy	group	C05;C10	Disease or Syndrome	0.01	1	2016	2016	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0027627	Neoplasm Metastasis	phenotype	C04;C23	Neoplastic Process	0.01	1	2015	2015	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0027794	Neural Tube Defects	group	C10;C16	Congenital Abnormality	0.31	1	2010	2010	   1	   0	BEFREE;CTD_human
+       10	NAT2	0.466	0.828	C0027806	Neurenteric Cyst	disease	C10;C16	Congenital Abnormality	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0028754	Obesity	disease	C18;C23	Disease or Syndrome	0.01	1	2018	2018	   1	   1	BEFREE
+       10	NAT2	0.466	0.828	C0028796	Dermatitis, Occupational	disease	C17;C24	Disease or Syndrome	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0029453	Osteopenia	disease	C05;C18	Disease or Syndrome	0.01	1	2002	2002	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0029925	Ovarian Carcinoma	disease		Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0030297	Pancreatic Neoplasm	disease	C04;C06;C19	Neoplastic Process	0.01		2008	2008	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C0030567	Parkinson Disease	disease	C10	Disease or Syndrome	0.10	1	1997	2017	  11	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0031090	Periodontal Diseases	group	C07	Disease or Syndrome	0.03	1	2001	2008	   3	   0	BEFREE;LHGDN
+       10	NAT2	0.466	0.828	C0032580	Adenomatous Polyposis Coli	disease	C04;C06;C16	Neoplastic Process	0.01	0	2004	2004	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0032584	polyps	phenotype	C23	Anatomical Abnormality	0.03	0.333333333333333	1999	2008	   3	   0	BEFREE
+       10	NAT2	0.466	0.828	C0032914	Pre-Eclampsia	phenotype	C13	Pathologic Function	0.01		2005	2005	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C0033578	Prostatic Neoplasms	group	C04;C12	Neoplastic Process	0.33	1	2002	2006	   5	   0	BEFREE;CTD_human;LHGDN
+       10	NAT2	0.466	0.828	C0034885	Rectal Neoplasms	group	C04;C06	Neoplastic Process	0.01	0	2009	2009	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0036341	Schizophrenia	disease	F03	Mental or Behavioral Dysfunction	0.01	1	2017	2017	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0036421	Systemic Scleroderma	disease	C17	Disease or Syndrome	0.01	1	2005	2005	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0038356	Stomach Neoplasms	group	C04;C06	Neoplastic Process	0.01		2007	2007	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C0040136	Thyroid Neoplasm	disease	C04;C19	Neoplastic Process	0.01		2009	2009	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C0041296	Tuberculosis	disease	C01	Disease or Syndrome	0.10	1	2003	2016	  15	   0	BEFREE
+       10	NAT2	0.466	0.828	C0041327	Tuberculosis, Pulmonary	disease	C01;C08	Disease or Syndrome	0.05	1	2006	2013	   5	   0	BEFREE
+       10	NAT2	0.466	0.828	C0041755	Adverse reaction to drug	group	C25	Pathologic Function	0.30		2007	2007	   2	   0	CTD_human
+       10	NAT2	0.466	0.828	C0042769	Virus Diseases	group	C02	Disease or Syndrome	0.01	1	2005	2005	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0079731	B-Cell Lymphomas	group	C04;C15;C20	Neoplastic Process	0.01	0	2017	2017	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0079744	Diffuse Large B-Cell Lymphoma	disease	C04;C15;C20	Neoplastic Process	0.01	1	2017	2017	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0080218	Tethered Cord Syndrome	disease	C10;C16	Disease or Syndrome	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0085096	Peripheral Vascular Diseases	group	C14	Disease or Syndrome	0.01	1	1993	1993	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0085584	Encephalopathies	group	C10	Disease or Syndrome	0.01	1	2018	2018	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0086445	Idiopathic Membranous Glomerulonephritis	disease	C12;C13;C20	Disease or Syndrome	0.01	1	2001	2001	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0086457	Industrial Dermatosis	disease	C17;C24	Disease or Syndrome	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0152013	Adenocarcinoma of lung (disorder)	disease	C04;C08	Neoplastic Process	0.02	1	2001	2009	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0152018	Esophageal carcinoma	disease		Neoplastic Process	0.02	1	2002	2014	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0152234	Iniencephaly	disease	C10;C16	Congenital Abnormality	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0152426	Craniorachischisis	disease	C10;C16	Congenital Abnormality	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0153381	Malignant neoplasm of mouth	disease	C04;C07	Neoplastic Process	0.04	1	1998	2014	   4	   0	BEFREE
+       10	NAT2	0.466	0.828	C0153382	Malignant neoplasm of oropharynx	disease		Neoplastic Process	0.01	1	2014	2014	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0153452	Malignant neoplasm of gallbladder	disease	C04;C06	Neoplastic Process	0.01	1	2007	2007	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0155877	Allergic asthma	disease		Disease or Syndrome	0.02	1	2003	2006	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0162670	Mitochondrial Myopathies	group	C05;C10;C18	Disease or Syndrome	0.01	1	2009	2009	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0162820	Dermatitis, Allergic Contact	disease	C17;C20	Disease or Syndrome	0.01		2006	2006	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C0178874	Tumor Progression	phenotype		Neoplastic Process	0.01	1	1997	1997	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0202236	Triglycerides measurement	phenotype		Laboratory Procedure	0.10		2012	2012	   1	   1	GWASDB
+       10	NAT2	0.466	0.828	C0206677	Adenomatous Polyps	disease	C04	Neoplastic Process	0.01	1	1997	1997	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0206698	Cholangiocarcinoma	disease	C04	Neoplastic Process	0.01		2005	2005	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C0206704	Carcinoma, Large Cell	disease	C04	Neoplastic Process	0.01	1	2000	2000	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0220624	Adult Brain Neoplasm	disease		Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0220641	Lip and Oral Cavity Carcinoma	disease		Neoplastic Process	0.04	1	1998	2014	   4	   0	BEFREE
+       10	NAT2	0.466	0.828	C0221052	Chronic berylliosis	disease		Disease or Syndrome	0.01	1	2008	2008	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0235653	Malignant neoplasm of female breast	disease		Neoplastic Process	0.01	1	2000	2000	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0235782	Gallbladder Carcinoma	disease		Neoplastic Process	0.01	1	2007	2007	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0235974	Pancreatic carcinoma	disease	C04;C06;C19	Neoplastic Process	0.02	0.5	2008	2008	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0238462	Medullary carcinoma of thyroid	disease	C04;C19	Neoplastic Process	0.01	1	2012	2012	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0242379	Malignant neoplasm of lung	disease	C04;C08	Neoplastic Process	0.10	1	1996	2015	  14	   0	BEFREE
+       10	NAT2	0.466	0.828	C0242383	Age related macular degeneration	disease	C11	Disease or Syndrome	0.01	1	2016	2016	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0264423	Asthma, Occupational	disease	C08;C20;C24	Disease or Syndrome	0.01	1	2008	2008	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0266453	Exencephaly	disease	C10;C16	Congenital Abnormality	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0266929	Chronic Periodontitis	disease	C07	Disease or Syndrome	0.01	1	2002	2002	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0278701	Gastric Adenocarcinoma	disease		Neoplastic Process	0.01	1	2000	2000	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0278996	Malignant Head and Neck Neoplasm	disease	C04	Neoplastic Process	0.03	1	1998	2014	   3	   0	BEFREE
+       10	NAT2	0.466	0.828	C0279626	Squamous cell carcinoma of esophagus	disease	C04;C06	Neoplastic Process	0.03	0.666666666666667	1998	2014	   3	   1	BEFREE
+       10	NAT2	0.466	0.828	C0279680	Transitional cell carcinoma of bladder	disease		Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0280100	Solid Neoplasm	phenotype		Neoplastic Process	0.01	1	2014	2014	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0280313	Squamous cell carcinoma of oropharynx	disease		Neoplastic Process	0.01	1	2014	2014	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0280324	Laryngeal Squamous Cell Carcinoma	disease		Neoplastic Process	0.01	1	2006	2006	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0302592	Cervix carcinoma	disease		Neoplastic Process	0.01	1	2003	2003	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0333983	Hyperplastic Polyp	disease		Neoplastic Process	0.03	1	1999	2008	   3	   0	BEFREE
+       10	NAT2	0.466	0.828	C0341439	Chronic liver disease	group		Disease or Syndrome	0.01	1	2009	2009	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0344479	Spinal Cord Myelodysplasia	disease	C10;C16	Congenital Abnormality	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0345904	Malignant neoplasm of liver	disease	C04;C06	Neoplastic Process	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0345967	Malignant mesothelioma	disease	C04;C08	Neoplastic Process	0.34	0.5	1995	2009	   4	   0	BEFREE;CTD_human
+       10	NAT2	0.466	0.828	C0346647	Malignant neoplasm of pancreas	disease	C04;C06;C19	Neoplastic Process	0.03	0.666666666666667	2001	2008	   3	   0	BEFREE
+       10	NAT2	0.466	0.828	C0376358	Malignant neoplasm of prostate	disease	C04;C12	Neoplastic Process	0.38	0.875	1998	2012	  11	   0	BEFREE;CTD_human
+       10	NAT2	0.466	0.828	C0376670	Pancreatitis, Alcoholic	disease	C06;C25	Disease or Syndrome	0.01	1	2010	2010	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0497327	Dementia	disease	C10;F03	Mental or Behavioral Dysfunction	0.01		2008	2008	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C0546837	Malignant neoplasm of esophagus	disease	C04;C06	Neoplastic Process	0.04	1	2002	2016	   4	   1	BEFREE
+       10	NAT2	0.466	0.828	C0549473	Thyroid carcinoma	disease	C04;C19	Neoplastic Process	0.01	1	2009	2009	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0553694	Oropharyngeal disorders	group		Disease or Syndrome	0.01	1	2014	2014	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0595989	Carcinoma of larynx	disease		Neoplastic Process	0.01	1	2011	2011	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0596263	Carcinogenesis	phenotype	C04;C23	Neoplastic Process	0.10	1	1995	2011	  11	   0	BEFREE
+       10	NAT2	0.466	0.828	C0598766	Leukemogenesis	disease		Neoplastic Process	0.01	1	2000	2000	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0600139	Prostate carcinoma	disease		Neoplastic Process	0.07	0.857142857142857	1998	2012	   7	   0	BEFREE
+       10	NAT2	0.466	0.828	C0677886	Epithelial ovarian cancer	disease	C04;C13;C19	Neoplastic Process	0.02	1	2008	2011	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0678222	Breast Carcinoma	disease	C04;C17	Neoplastic Process	0.40	0.918918918918919	1996	2017	  37	   3	BEFREE;CTD_human
+       10	NAT2	0.466	0.828	C0684249	Carcinoma of lung	disease		Neoplastic Process	0.10	1	1996	2015	  14	   0	BEFREE
+       10	NAT2	0.466	0.828	C0699790	Colon Carcinoma	disease		Neoplastic Process	0.10	0.909090909090909	1995	2018	  11	   0	BEFREE
+       10	NAT2	0.466	0.828	C0699791	Stomach Carcinoma	disease		Neoplastic Process	0.06	1	2000	2014	   6	   0	BEFREE
+       10	NAT2	0.466	0.828	C0699885	Carcinoma of bladder	disease		Neoplastic Process	0.10	0.963636363636364	1996	2017	  55	   0	BEFREE
+       10	NAT2	0.466	0.828	C0702169	Acrania	disease	C10;C16	Congenital Abnormality	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C0741682	Premenopausal breast cancer	disease		Neoplastic Process	0.01	1	2002	2002	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0747845	early pregnancy	phenotype		Disease or Syndrome	0.01	1	2004	2004	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0751688	Malignant Squamous Cell Neoplasm	disease	C04	Neoplastic Process	0.02	1	2002	2002	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0810364	Cleft Lip with or without Cleft Palate	disease		Congenital Abnormality	0.01	1	2017	2017	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C0812413	Malignant Pleural Mesothelioma	disease		Neoplastic Process	0.02	1	2006	2010	   2	   1	BEFREE
+       10	NAT2	0.466	0.828	C0860207	Drug-Induced Liver Disease	disease	C06;C25	Disease or Syndrome	0.37	1	2002	2016	  11	   0	BEFREE;CTD_human
+       10	NAT2	0.466	0.828	C0878544	Cardiomyopathies	group	C14	Disease or Syndrome	0.02	0.5	2009	2016	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C0949059	Polyp of large intestine	disease		Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1140680	Malignant neoplasm of ovary	disease	C04;C13;C19	Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1257931	Mammary Neoplasms, Human	group	C04;C17	Neoplastic Process	0.30		2010	2010	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C1262760	Hepatitis, Drug-Induced	disease	C06;C25	Disease or Syndrome	0.33	0.666666666666667	2002	2016	   6	   0	BEFREE;CTD_human
+       10	NAT2	0.466	0.828	C1302401	Adenoma of large intestine	disease		Neoplastic Process	0.05	0.8	2003	2015	   5	   0	BEFREE
+       10	NAT2	0.466	0.828	C1306460	Primary malignant neoplasm of lung	disease		Neoplastic Process	0.10	1	1996	2015	  14	   0	BEFREE
+       10	NAT2	0.466	0.828	C1319315	Adenocarcinoma of large intestine	disease		Neoplastic Process	0.01	1	2000	2000	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1332338	Asbestos-Related Malignant Mesothelioma	disease		Neoplastic Process	0.01	1	2009	2009	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1333990	Hereditary Nonpolyposis Colorectal Cancer	disease	C04;C06;C16;C18	Neoplastic Process	0.02	0.5	2006	2007	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C1337013	Differentiated Thyroid Gland Carcinoma	disease		Neoplastic Process	0.01	1	2009	2009	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1384666	hearing impairment	phenotype	C09;C10;C23	Disease or Syndrome	0.01		2007	2007	   1	   0	LHGDN
+       10	NAT2	0.466	0.828	C1402315	Vascular lesions	disease		Disease or Syndrome	0.01	1	2001	2001	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1445957	Serum total cholesterol measurement	phenotype		Laboratory Procedure	0.10		2017	2017	   1	   1	GWASCAT
+       10	NAT2	0.466	0.828	C1458155	Mammary Neoplasms	group	C04;C17	Neoplastic Process	0.38		2002	2010	   9	   0	CTD_human;LHGDN
+       10	NAT2	0.466	0.828	C1512409	Hepatocarcinogenesis	disease		Neoplastic Process	0.01	1	2000	2000	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1527249	Colorectal Cancer	disease	C04;C06	Neoplastic Process	0.10	0.944444444444444	1993	2016	  36	   3	BEFREE
+       10	NAT2	0.466	0.828	C1565489	Renal Insufficiency	disease	C12;C13	Disease or Syndrome	0.01	1	2012	2012	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1621958	Glioblastoma Multiforme	disease	C04	Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1704436	Peripheral Arterial Diseases	group	C14	Disease or Syndrome	0.01	1	1993	1993	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1762616	Meningioma, benign, no ICD-O subtype	disease		Neoplastic Process	0.01	1	2006	2006	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1827377	Slow acetylator due to N-acetyltransferase enzyme variant	disease		Disease or Syndrome	0.10	0.934426229508197	1994	2017	  61	   0	BEFREE
+       10	NAT2	0.466	0.828	C1827820	Fast acetylator due to N-acetyltransferase enzyme variant	disease		Disease or Syndrome	0.10	0.894736842105263	1994	2015	  19	   0	BEFREE
+       10	NAT2	0.466	0.828	C1837217	Cleft lip, isolated	disease		Congenital Abnormality	0.01	1	2008	2008	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1840311	Laryngeal cleft	disease	C16	Congenital Abnormality	0.01	0	2005	2005	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C1956346	Coronary Artery Disease	disease	C14	Disease or Syndrome	0.30		2011	2011	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C1961102	Precursor Cell Lymphoblastic Leukemia Lymphoma	disease	C04;C15;C20	Neoplastic Process	0.30		2012	2012	   1	   0	CTD_human
+       10	NAT2	0.466	0.828	C2239176	Liver carcinoma	disease	C04;C06	Neoplastic Process	0.06	1	2000	2015	   6	   0	BEFREE
+       10	NAT2	0.466	0.828	C2316810	Chronic kidney disease stage 5	disease		Disease or Syndrome	0.20		2010	2010	   1	   0	RGD
+       10	NAT2	0.466	0.828	C2349952	Oropharyngeal Carcinoma	disease	C04;C07;C09	Neoplastic Process	0.01	1	2014	2014	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C3266076	Orofacial cleft	disease		Congenital Abnormality	0.01	1	2004	2004	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C3539909	Allergic disposition	phenotype		Finding	0.03	1	1998	2001	   3	   0	BEFREE
+       10	NAT2	0.466	0.828	C3541994	Drug Hypersensitivity Syndrome	disease	C17;C20;C25	Disease or Syndrome	0.01	0	2013	2013	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C3642345	Luminal A Breast Carcinoma	disease		Neoplastic Process	0.01	1	2015	2015	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C3642346	Luminal B Breast Carcinoma	disease		Neoplastic Process	0.01	1	2015	2015	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C3658290	Drug-Induced Acute Liver Injury	disease	C06;C25	Disease or Syndrome	0.30		2002	2016	   4	   0	CTD_human
+       10	NAT2	0.466	0.828	C3826066	Leukemia in children	disease		Neoplastic Process	0.01	1	2012	2012	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C3887461	Head and Neck Carcinoma	disease		Neoplastic Process	0.01	1	2014	2014	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C3899278	Early Rheumatoid Arthritis	disease		Disease or Syndrome	0.01	1	2015	2015	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C4048328	cervical cancer	disease	C04;C13	Neoplastic Process	0.01	1	2003	2003	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C4054726	Infant Leukemia	disease		Neoplastic Process	0.01	1	2011	2011	   1	   0	BEFREE
+       10	NAT2	0.466	0.828	C4275179	Young onset Parkinson disease	disease		Disease or Syndrome	0.02	1	1998	2007	   2	   0	BEFREE
+       10	NAT2	0.466	0.828	C4277682	Chemical and Drug Induced Liver Injury	disease	C06;C25	Disease or Syndrome	0.30		2002	2016	   4	   0	CTD_human
+       10	NAT2	0.466	0.828	C4279912	Chemically-Induced Liver Toxicity	disease	C06;C25	Disease or Syndrome	0.30		2002	2016	   4	   0	CTD_human
+       12	SERPINA3	0.572	0.69	C0002395	Alzheimer's Disease	disease	C10;F03	Disease or Syndrome	0.10	0.951219512195122	1988	2013	  43	   2	BEFREE;LHGDN
+       12	SERPINA3	0.572	0.69	C0002726	Amyloidosis	disease	C18	Disease or Syndrome	0.07	1	1988	2012	   7	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0002793	Anaplasia	disease	C04;C23	Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0004096	Asthma	disease	C08;C20	Disease or Syndrome	0.03	1	1990	2013	   3	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0005779	Blood Coagulation Disorders	group	C15	Disease or Syndrome	0.01	1	2007	2007	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0006142	Malignant neoplasm of breast	disease	C04;C17	Neoplastic Process	0.01	1	2005	2005	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0007766	Intracranial Aneurysm	disease	C10;C14	Disease or Syndrome	0.02	1	2007	2010	   2	   2	BEFREE
+       12	SERPINA3	0.572	0.69	C0007820	Cerebrovascular Disorders	group	C10;C14	Disease or Syndrome	0.02	1	1992	2000	   2	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0008354	Cholera	disease	C01	Disease or Syndrome	0.01	1	2007	2007	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0010674	Cystic Fibrosis	disease	C06;C08;C16	Disease or Syndrome	0.01	1	2001	2001	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0011265	Presenile dementia	disease	C10;F03	Mental or Behavioral Dysfunction	0.04	1	1997	2009	   4	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0011269	Dementia, Vascular	disease	C10;C14;F03	Disease or Syndrome	0.01	1	2000	2000	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0011847	Diabetes	disease		Disease or Syndrome	0.01	1	2013	2013	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0011849	Diabetes Mellitus	group	C18;C19	Disease or Syndrome	0.01	1	2013	2013	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0011884	Diabetic Retinopathy	disease	C11;C14;C19	Disease or Syndrome	0.21	1	2009	2013	   2	   0	BEFREE;CTD_mouse
+       12	SERPINA3	0.572	0.69	C0017636	Glioblastoma	disease	C04	Neoplastic Process	0.01	1	2017	2017	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0018801	Heart failure	disease	C14	Disease or Syndrome	0.02	1	2009	2013	   2	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0018802	Congestive heart failure	disease	C14	Disease or Syndrome	0.02	1	2009	2013	   2	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0019196	Hepatitis C	disease	C02;C06	Disease or Syndrome	0.01	1	2015	2015	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0020538	Hypertensive disease	group	C14	Disease or Syndrome	0.02	0.5	2003	2005	   2	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0021368	Inflammation	phenotype	C23	Pathologic Function	0.20		2009	2009	   1	   0	CTD_mouse
+       12	SERPINA3	0.572	0.69	C0023794	Lipoidosis	disease	C16;C18	Disease or Syndrome	0.30		2005	2007	   3	   0	CTD_human
+       12	SERPINA3	0.572	0.69	C0023893	Liver Cirrhosis, Experimental	disease	C06	Experimental Model of Disease	0.20		2005	2015	   2	   0	CTD_mouse
+       12	SERPINA3	0.572	0.69	C0023895	Liver diseases	group	C06	Disease or Syndrome	0.01	1	1986	1986	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0023903	Liver neoplasms	group	C04;C06	Neoplastic Process	0.02	1	1986	1988	   2	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0024115	Lung diseases	group	C08	Disease or Syndrome	0.01	1	2001	2001	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0024117	Chronic Obstructive Airway Disease	disease	C08	Disease or Syndrome	0.04	1	2000	2006	   4	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0024408	Machado-Joseph Disease	disease	C10;C16	Disease or Syndrome	0.01	1	1994	1994	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0024530	Malaria	disease	C03	Disease or Syndrome	0.01	1	2006	2006	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0027051	Myocardial Infarction	disease	C14	Disease or Syndrome	0.01		2008	2008	   1	   0	LHGDN
+       12	SERPINA3	0.572	0.69	C0027627	Neoplasm Metastasis	phenotype	C04;C23	Neoplastic Process	0.01		2005	2005	   1	   0	LHGDN
+       12	SERPINA3	0.572	0.69	C0027651	Neoplasms	group	C04	Neoplastic Process	0.01	1	2017	2017	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0029925	Ovarian Carcinoma	disease		Neoplastic Process	0.01	1	2017	2017	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0030567	Parkinson Disease	disease	C10	Disease or Syndrome	0.01		2005	2005	   1	   0	LHGDN
+       12	SERPINA3	0.572	0.69	C0033575	Prostatic Diseases	group	C12	Disease or Syndrome	0.01	1	2001	2001	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0033578	Prostatic Neoplasms	group	C04;C12	Neoplastic Process	0.30		2008	2008	   1	   0	CTD_human
+       12	SERPINA3	0.572	0.69	C0033845	Pseudotumor Cerebri	disease	C10	Disease or Syndrome	0.01	1	1985	1985	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0033975	Psychotic Disorders	group	F03	Mental or Behavioral Dysfunction	0.01	0	2002	2002	   1	   0	BEFREE;PSYGENET
+       12	SERPINA3	0.572	0.69	C0034067	Pulmonary Emphysema	disease	C08	Disease or Syndrome	0.03	1	2002	2009	   3	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0035309	Retinal Diseases	group	C11	Disease or Syndrome	0.20		2009	2009	   1	   0	CTD_mouse
+       12	SERPINA3	0.572	0.69	C0036341	Schizophrenia	disease	F03	Mental or Behavioral Dysfunction	0.02	1	2009	2014	   2	   0	BEFREE;LHGDN
+       12	SERPINA3	0.572	0.69	C0037019	Shy-Drager Syndrome	disease	C10;C14	Disease or Syndrome	0.01	1	2005	2005	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0038454	Cerebrovascular accident	group	C10;C14	Disease or Syndrome	0.02	1	2000	2003	   2	   0	BEFREE;LHGDN
+       12	SERPINA3	0.572	0.69	C0038525	Subarachnoid Hemorrhage	disease	C10;C14;C23	Disease or Syndrome	0.03	0.666666666666667	2005	2010	   3	   0	BEFREE;LHGDN
+       12	SERPINA3	0.572	0.69	C0041107	Trisomy	group	C23	Cell or Molecular Dysfunction	0.01	1	1991	1991	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0042373	Vascular Diseases	group	C14	Disease or Syndrome	0.01	1	2003	2003	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0042384	Vasculitis	group	C14	Disease or Syndrome	0.01	1	2003	2003	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0043167	Pertussis	disease	C01;C08	Disease or Syndrome	0.01	1	2018	2018	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0043168	Whooping cough due to unspecified organism	disease		Disease or Syndrome	0.01	1	2018	2018	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0149521	Pancreatitis, Chronic	disease	C06	Disease or Syndrome	0.01	1	2015	2015	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0152230	Cholinergic urticaria	disease		Disease or Syndrome	0.01	1	1981	1981	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0155626	Acute myocardial infarction	disease		Disease or Syndrome	0.01	1	2008	2008	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0155877	Allergic asthma	disease		Disease or Syndrome	0.01	1	2001	2001	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0162534	Prion Diseases	group	C10	Disease or Syndrome	0.01	1	2009	2009	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0202117	Low density lipoprotein cholesterol measurement	phenotype		Laboratory Procedure	0.10		2012	2012	   1	   1	GWASDB
+       12	SERPINA3	0.572	0.69	C0221207	Urticaria due to cold	disease		Disease or Syndrome	0.01	1	1981	1981	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0221757	alpha 1-Antitrypsin Deficiency	disease	C06;C08;C16;C23	Disease or Syndrome	0.03	1	1986	1990	   3	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0235974	Pancreatic carcinoma	disease	C04;C06;C19	Neoplastic Process	0.01	1	2015	2015	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0268398	Familial lichen amyloidosis	disease	C16;C17;C18	Disease or Syndrome	0.01	1	2006	2006	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0276496	Familial Alzheimer Disease (FAD)	disease	C10;F03	Disease or Syndrome	0.01	1	1997	1997	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0278878	Adult Glioblastoma	disease		Neoplastic Process	0.01	1	2017	2017	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0280474	Childhood Glioblastoma	disease		Neoplastic Process	0.01	1	2017	2017	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0302592	Cervix carcinoma	disease		Neoplastic Process	0.01	1	2008	2008	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0333463	Senile Plaques	phenotype	C23	Acquired Abnormality	0.04	1	2001	2004	   4	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0334463	Malignant Fibrous Histiocytoma	disease	C04	Neoplastic Process	0.01	1	1999	1999	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0338656	Impaired cognition	disease	F03	Mental or Behavioral Dysfunction	0.03	1	2005	2006	   3	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0346647	Malignant neoplasm of pancreas	disease	C04;C06;C19	Neoplastic Process	0.01	1	2015	2015	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0349204	Nonorganic psychosis	disease		Mental or Behavioral Dysfunction	0.01	0	2002	2002	   1	   0	BEFREE;PSYGENET
+       12	SERPINA3	0.572	0.69	C0376358	Malignant neoplasm of prostate	disease	C04;C12	Neoplastic Process	0.32	1	1998	2008	   3	   0	BEFREE;CTD_human
+       12	SERPINA3	0.572	0.69	C0494463	Alzheimer Disease, Late Onset	disease	C10;F03	Mental or Behavioral Dysfunction	0.01	1	1997	1997	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0497327	Dementia	disease	C10;F03	Mental or Behavioral Dysfunction	0.05	0.75	1997	2009	   5	   0	BEFREE;LHGDN
+       12	SERPINA3	0.572	0.69	C0520463	Chronic active hepatitis	disease	C06	Disease or Syndrome	0.01	1	1986	1986	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0521158	Recurrent tumor	phenotype		Neoplastic Process	0.01	1	2005	2005	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0524851	Neurodegenerative Disorders	group	C10	Disease or Syndrome	0.01	1	2006	2006	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0600139	Prostate carcinoma	disease		Neoplastic Process	0.02	1	1998	2001	   2	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0600260	Lung Diseases, Obstructive	group	C08	Disease or Syndrome	0.01	1	1999	1999	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0677886	Epithelial ovarian cancer	disease	C04;C13;C19	Neoplastic Process	0.01	1	2017	2017	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0677898	invasive cancer	phenotype		Neoplastic Process	0.01	1	2015	2015	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0751713	Inclusion Body Myopathy, Sporadic	disease	C05;C10	Disease or Syndrome	0.01	1	1994	1994	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0752347	Lewy Body Disease	disease	C10;F03	Disease or Syndrome	0.02	1	1998	2007	   2	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0919267	ovarian neoplasm	disease	C04;C13;C19	Neoplastic Process	0.01	1	1995	1995	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0948008	Ischemic stroke	disease		Disease or Syndrome	0.02	1	2000	2003	   2	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C0949664	Tauopathies	group	C10	Disease or Syndrome	0.01	1	2006	2006	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C1140680	Malignant neoplasm of ovary	disease	C04;C13;C19	Neoplastic Process	0.01	1	2017	2017	   1	   0	BEFREE
+       12	SERPINA3	0.572	0.69	C1862939	AMYOTROPHIC LATERAL SCLEROSIS 1	disease	C10;C18	Disease or Syndrome	0.20		2002	2002	   1	   0	CTD_mouse
+       12	SERPINA3	0.572	0.69	C1862941	Amyotrophic Lateral Sclerosis, Sporadic	disease	C10;C18	Disease or Syndrome	0.20		2002	2002	   1	   0	CTD_mouse
+       12	SERPINA3	0.572	0.69	C2239176	Liver carcinoma	disease	C04;C06	Neoplastic Process	0.04	1	1986	2017	   4	   0	BEFREE

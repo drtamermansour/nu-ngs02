@@ -1,0 +1,36 @@
+{
+    "DPI": {
+        "MAX": "NULL",
+        "MIN": "NULL"
+    },
+    "DSI": {
+        "MAX": "NULL",
+        "MIN": "NULL"
+    },
+    "NofPmids": {
+        "MAX": "NULL",
+        "MIN": "NULL"
+    },
+    "NofSnps": {
+        "MAX": "NULL",
+        "MIN": "NULL"
+    },
+    "YearFinal": {
+        "MAX": "NULL",
+        "MIN": "NULL"
+    },
+    "YearInitial": {
+        "MAX": "NULL",
+        "MIN": "NULL"
+    },
+    "diseaseSemanticType": {
+        "options": ["NULL"]
+    },
+    "diseaseType": {
+        "options": ["NULL"]
+    },
+    "score": {
+        "MAX": "NULL",
+        "MIN": "NULL"
+    }
+}
