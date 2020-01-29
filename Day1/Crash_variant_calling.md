@@ -23,7 +23,7 @@ BWA Alignment
 
 ## install [bwa](http://bio-bwa.sourceforge.net/bwa.shtml)
 ```
-source activate ngs1
+conda activate ngs1
 conda install -c bioconda bwa 
 ```
 
@@ -50,7 +50,7 @@ Visualize mapping
 
 ## install [samtools](http://www.htslib.org/doc/samtools.html)
 ```
-source activate ngs1
+conda activate ngs1
 conda install samtools
 ```
 
@@ -86,7 +86,7 @@ wget http://data.broadinstitute.org/igv/projects/downloads/2.5/IGV_Linux_2.5.0.z
 unzip IGV_Linux_2.5.0.zip
 sudo echo 'export IGV=$HOME/IGV_Linux_2.5.0/igv.sh' >> ~/.bashrc
 source ~/.bashrc
-source activate ngs1
+conda activate ngs1
 bash $IGV -g bwaIndex/dog_chr5.fa BD143_TGACCA_L005.sorted.bam
 ```
 
