@@ -1,7 +1,7 @@
 Crash variant calling
 =====================
 
-Download Fastq files
+Download Fastq files (same data used in nu-ngs01/Day-2/FASTQC_tutorial.md)
 ```
 mkdir -p ~/workdir/fqData && cd ~/workdir/fqData
 wget https://de.cyverse.org/dl/d/3CE425D7-ECDE-46B8-AB7F-FAF07048AD42/samples.tar.gz
@@ -9,7 +9,7 @@ tar xvzf samples.tar.gz
 ```
 
 
-Download reference file
+Download reference file (same reference we used in alignment in nu-ngs01/Day-3/seq_alignment.md)
 ```
 cd ~/workdir/sample_data
 wget https://de.cyverse.org/dl/d/A9330898-FC54-42A5-B205-B1B2DC0E91AE/dog_chr5.fa.gz
@@ -18,8 +18,10 @@ gunzip dog_chr5.fa.gz
 
 
 
-BWA Alignment
+BWA Alignment 
 =============
+
+We are re-running the code from "nu-ngs01/Day-3/seq_alignment.md"
 
 ## install [bwa](http://bio-bwa.sourceforge.net/bwa.shtml)
 ```
@@ -75,7 +77,7 @@ samtools tview -p chr5:62155107 BD143_TGACCA_L005.sorted.bam bwaIndex/dog_chr5.f
     * press `?` for help
     * `q` to quit
     * CTRL-h and CTRL-l do “big” scrolls
-    * g chr5:62155107 will take you to a specific location.
+    * g chr5:62167341 will take you to a specific location. 
 
 
 ## Visualize mapping using [IGV](https://bioinformatics-ca.github.io/resources/IGV_Tutorial.pdf)
@@ -94,8 +96,8 @@ Call variants
 =============
 
 mpileup: 
-- Generate genotype likelihoods for one or multiple alignment files. 
-- Individuals are identified from the SM tags in the @RG header lines. Multiple individuals can be pooled in one alignment file, also one individual can be separated into multiple files. If sample identifiers are absent, each input file is regarded as one sample.
+- Generate **genotype likelihoods** for one or multiple alignment files. 
+- Individuals are identified from the SM tags in the @RG header lines. Thus multiple individuals can be pooled in one alignment file, also one individual can be separated into multiple files. If sample identifiers are absent, each input file is regarded as one sample.
 - Base alignment quality (BAQ). BAQ is the Phred-scaled probability of a read base being misaligned. Applying this option greatly helps to reduce false SNPs caused by misalignments.
 - `-Ou` option for piping between bcftools subcommands to speed up performance by removing unnecessary compression/decompression and VCF←→BCF conversion.
 
