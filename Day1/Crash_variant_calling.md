@@ -112,3 +112,18 @@ conda install bcftools
 bcftools mpileup -Ou -f bwaIndex/dog_chr5.fa BD143_TGACCA_L005.sorted.bam |\
 bcftools call -Ov -mv > BD143_TGACCA_L005.vcf
 ```
+
+
+**False SNPs caused by nearby INDELs**
+
+Example from the page of [Calling SNPs/INDELs with SAMtools/BCFtools](http://samtools.sourceforge.net/mpileup.shtml): The following image shows the alignments of 6 reads by a typical read mapper in the presence of a 4bp homozygous INDEL. Capital bases represent differences from the reference and underlined bases are the inserted bases. All alignments except for read3 are wrong because the 4bp insertion is misplaced. The mapper produces such alignments because when doing a pairwise alignment, the mapper prefers one or two mismatches over a 4bp insertion. **Wrong alignments lead to recurrent mismatches.**
+
+
+   ![alt text](BAQ.png)
+   
+   
+ How to avoid this problem?
+ 
+ 1. multi-sequence realignment but computationally demanding
+ 2. SAMtools: It assigns each base a BAQ which is the Phred-scaled probability of the base being misaligned. BAQ is low if the base is aligned to a different reference base in a suboptimal alignment, and in this case a mismatch should contribute little to SNP calling even if the base quality is high. 
+ 3. GATK: local assembly
