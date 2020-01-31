@@ -66,6 +66,7 @@ ls -tral ~/workdir/fqData/*_R*_001.pe.fq.gz
 
 ## Add Read group information and align all reads
 ```
+conda activate ngs1
 mkdir -p ~/workdir/GATK_tutorial && cd ~/workdir/GATK_tutorial
 for R1 in ~/workdir/fqData/*_R1_001.pe.fq.gz;do
     SM=$(basename $R1 | cut -d"_" -f1)                                          ##sample ID
@@ -97,7 +98,7 @@ Explore files size!
 ```
 # Install Picard tools
 conda install -c bioconda picard 
-picard_path=$CONDA_PREFIX/share/picard-2.19.0-0
+picard_path=$CONDA_PREFIX/share/picard-2.21.7-0
 
 
 # merge the replicates
@@ -162,7 +163,7 @@ wget 'ftp://ftp.ensembl.org/pub/release-89/variation/vcf/canis_familiaris/Canis_
 gunzip canis_familiaris.vcf.gz
 grep "^#" canis_familiaris.vcf > canis_fam_chr5.vcf
 grep "^5" canis_familiaris.vcf | sed 's/^5/chr5/' >> canis_fam_chr5.vcf
-gatk IndexFeatureFile -F canis_fam_chr5.vcf
+gatk IndexFeatureFile -I canis_fam_chr5.vcf
 ```
 
 Note the differences between genome annotation databases. Not only chromosome names but more importantly the coordinate system [interesting post](https://www.biostars.org/p/84686/)
