@@ -2,33 +2,81 @@
 GATK Variant calling
 ====================
 
-> **What is the required data coverage?**
-
 Did you run the [crash variant calling tutorial](https://github.com/drtamermansour/nu-ngs02/blob/master/Crash_variant_calling.md)? Make sure you run it to download data and software needed for this tutorial
 
-Data trimming: 
-- Trimming is data loss so be careful.
-- Sequence trimming is complementary to variant filtration
-- Sources of errors: 
-    * The call is suspicious ==> low quality score (variant filtration is better than quality trimming) 
-    * Technical problems (e.g. sequencing chemistry or physics) ==> systematic errors (can be removed by careful kmer based trimming. GATK recalibration is an alternative)
+**What is the optimum sequence coverage?**
+
+* WGS: 30-50x
+* WES: 80x
+
+Two key parameters affect the required sequence coverage:
+
+1. GC bias (less bias produce a more uniform coverage)
+2. Sequence base quality 
+
+This [article](https://www.ncbi.nlm.nih.gov/pubmed/?term=24434847) is a good reference for the topic 
+
+**What is the optimum sequence trimming thresholds?**
+
+Points to keep in mind:
+
+- Trimming will increase the sequence base quality but will cause data loss as well decreasing the coverage so be careful.
+- Calls from reads with low quality will have low quality scores. Thus, they can be removed kater by variant filtration  
+- GATK has a recalibration step to minimize the impact of systematic errors 
+- Trimming is shown to increase the quality and reliability of the analysis, with concurrent gains in terms of execution time and computational resources needed [reference](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0085024) 
+
+*Final conclusion*
+- Mild to moderate quality trimming is recommended. 
+- Example for very mild trimming parameters: SLIDINGWINDOW:4:2 ==> this means that the Base call accuracy is ~ 40%. Check this [tutorial](https://github.com/drtamermansour/nu-ngs01/blob/master/Day-2/Trimmomatic_tutorial.md) for more info.
+
+
+**What is Read group information?**
+
+a) Sample and library tags
+   - SM = biological sample name.
+   - LB = name of DNA preparation library tube = {SM}.{library-specific identifier}(Important To identify PCR duplicates in MarkDuplicates step. Ignore in PCR free libraries)
+
+The current Illumina sequencing file has this naming scheme:
+
+<Sample.ID><Index.Sequence><Lane.ID><Set.number>.fastq
+
+So SM and LB tags can be autmatically detected from sample file's name:
+   - SM = <Sample.ID>
+   - LB = <Sample.ID>_<Index.Sequence>
+
+b) ID and PU tags
+   - ID = This tag identifies which read group each read belongs to, so each read group's must be unique. In Illumina data, read group IDs are composed using the **flowcell name** and **lane number**, making them a globally unique identifier across all sequencing data in the world (as long as you have one sample in the SAM file). If you are merging multiple SAM files, you should add a sample identifier as well. Note that some Picard tools have the ability to modify IDs when merging SAM files in order to avoid collisions. 
+   - PU = This tag mimic the ID tag but add library-specific identifier in case we have multiple library preparations for one sample running in the same lane. This is the most specific definition for a group of reads. Although the PU is not required by GATK but takes precedence over ID for base recalibration if it is present. 
     
-- Very mild quality trimming: SLIDINGWINDOW:4:2 ==> this means that the Base call accuracy is ~ 40%. Check this [tutorial](https://github.com/drtamermansour/nu-ngs01/blob/master/Day-2/Trimmomatic_tutorial.md) for more info.
+Typical read's name format in a fastq file from Illumina sequencing looks like:  
+
+@(instrument id):(run number):(flowcell ID):(lane):(tile):(x_pos):(y_pos) (read):(is filtered):(control number):(index sequence)
+
+So The first read's name can be used to automate the generation of ID and PU tags: 
+   - FLOWCELL_BARCODE = @(instrument id):(run number):(flowcell ID)
+   - ID = Read group identifier = {FLOWCELL_BARCODE}.{LANE}
+   - PU = Platform Unit = {FLOWCELL_BARCODE}.{LANE}.{library-specific identifier}. 
+    
+special Notes:
+- One sample (SM) can have multiple libraries (e.g SE, PE50, and PE100) (LB), can run on multiple lanes and/or multiple flow cells (RGID), and can run on multiple platforms (PL).
+- One library can run on multiple lanes or multiple flow cells (PU).
+- If we have multiple samples for the same individual e.g. before and after treatment, each sample should have a different SM but unless you expect change of sequence, we can consider them multiple libraries of the same sample)
+- if you have one library for each sample running on one lane of a sequencing machine then you can make SM=LB=RGID=PU
 
 ## Explore the sample names
 ```
 ls -tral ~/workdir/fqData/*_R*_001.pe.fq.gz
 ```
 
-## Add [Read group information] and align all reads
+## Add Read group information and align all reads
 ```
 mkdir -p ~/workdir/GATK_tutorial && cd ~/workdir/GATK_tutorial
 for R1 in ~/workdir/fqData/*_R1_001.pe.fq.gz;do
     SM=$(basename $R1 | cut -d"_" -f1)                                          ##sample ID
     LB=$(basename $R1 | cut -d"_" -f1,2)                                        ##library ID
-    PL="Illumina"                                                           ##platform (e.g. illumina, solid)
-    RGID=$(zcat $R1 | head -n1 | sed 's/:/_/g' |cut -d "_" -f1,2,3,4)       ##read group identifier 
-    PU=$RGID.$LB                                                            ##Platform Unit
+    PL="Illumina"                                                               ##platform (e.g. illumina, solid)
+    RGID=$(zcat $R1 | head -n1 | sed 's/:/_/g' |cut -d "_" -f1,2,3,4)           ##read group identifier 
+    PU=$RGID.$LB                                                                ##Platform Unit
     echo -e "@RG\tID:$RGID\tSM:$SM\tPL:$PL\tLB:$LB\tPU:$PU"
 
     R2=$(echo $R1 | sed 's/_R1_/_R2_/')
@@ -36,32 +84,6 @@ for R1 in ~/workdir/fqData/*_R1_001.pe.fq.gz;do
     index="$HOME/workdir/bwa_align/bwaIndex/dog_chr5.fa"
     bwa mem -t 4 -M -R "@RG\tID:$RGID\tSM:$SM\tPL:$PL\tLB:$LB\tPU:$PU" $index $R1 $R2 > $(basename $R1 _R1_001.pe.fq.gz).sam
 done
-```
-
-Note:
-```
-a) Sample and library tags
-    - SM = biological sample name.
-    - LB = name of DNA preparation library tube = {SM}.{library-specific identifier}(Important To identify PCR duplicates in MarkDuplicates step. Ignore in PCR free libraries)
-
-Can be autmatically detected from current sample naming scheme:<Sample.ID><Index.Sequence><Lane.ID><Set.number>.fastq
-
-    - SM = <Sample.ID>
-    - LB = <Sample.ID>_<Index.Sequence>
-
-b) ID and PU (to enable merging replictes)
-    - ID = Read group identifier = {FLOWCELL_BARCODE}.{LANE}
-    - PU = Platform Unit = {FLOWCELL_BARCODE}.{LANE}.{library-specific identifier}. This is the most specific definition for a group of reads.
-
-Also can be identified from the name of a sequence read in the Fastq file:@(instrument id):(run number):(flowcell ID):(lane):(tile):(x_pos):(y_pos) (read):(is filtered):(control number):(index sequence)FLOWCELL_BARCODE = @(instrument id):(run number):(flowcell ID)
-
-special Notes:
-- One sample (SM) can have multiple libraries (e.g SE, PE50, and PE100) (LB), can run on multiple lanes and/or multiple flow cells (RGID), and can run on multiple platforms (PL).
-- One library can run on multiple lanes or multiple flow cells (PU).
-- If we have multiple samples for the same individual e.g. before and after treatment, each sample should have a different SM but unless you expect change of sequence, we can consider them multiple libraries of the same sample)
-- Multiple samples can share the same Read group ID (When manuals sya “must be unique”. They mean unique in a BAM file. So it is ok that multiple samples can share the same Read group ID)
-- if you have one library for each sample running on one lane of a sequencing machine then you can make SM=LB=RGID=PU
-
 ```
 
 ## generate & sort BAM file
