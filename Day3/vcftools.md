@@ -4,7 +4,7 @@
 
 ```
 conda activate ngs1
-conda install vcftools
+conda install -y vcftools
 ```
 
 ## Test Data Download
@@ -12,6 +12,8 @@ conda install vcftools
 ### Small sample
 
 ```bash
+mkdir -p ~/workdir/vcftools_tut && cd ~/workdir/vcftools_tut
+
 wget ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/pilot_data/release/2010_07/exon/snps/YRI.exon.2010_03.sites.vcf.gz -O pilot.vcf.gz
 
 wget ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/pilot_data/release/2010_07/exon/snps/YRI.exon.2010_03.genotypes.vcf.gz -O gt.vcf.gz
@@ -123,9 +125,3 @@ rs34752670
 
 ## Alleles Count
 `vcftools --vcf gt.vcf --counts -c > gt_counts.vcf`
-
----
-
-## Convert to PLINK
-
-`vcftools --vcf gt.vcf --plink  --out gt_plink`
