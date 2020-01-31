@@ -36,10 +36,8 @@ a) Sample and library tags
    - SM = biological sample name.
    - LB = name of DNA preparation library tube = {SM}.{library-specific identifier}(Important To identify PCR duplicates in MarkDuplicates step. Ignore in PCR free libraries)
 
-The current Illumina sequencing file has this naming scheme:
-
-<Sample.ID><Index.Sequence><Lane.ID><Set.number>.fastq
-
+The current Illumina sequencing file has this naming scheme:<br>
+<Sample.ID><Index.Sequence><Lane.ID><Set.number>.fastq<br>
 So SM and LB tags can be autmatically detected from sample file's name:
    - SM = <Sample.ID>
    - LB = <Sample.ID>_<Index.Sequence>
@@ -48,10 +46,8 @@ b) ID and PU tags
    - ID = This tag identifies which read group each read belongs to, so each read group's must be unique. In Illumina data, read group IDs are composed using the **flowcell name** and **lane number**, making them a globally unique identifier across all sequencing data in the world (as long as you have one sample in the SAM file). If you are merging multiple SAM files, you should add a sample identifier as well. Note that some Picard tools have the ability to modify IDs when merging SAM files in order to avoid collisions. 
    - PU = This tag mimic the ID tag but add library-specific identifier in case we have multiple library preparations for one sample running in the same lane. This is the most specific definition for a group of reads. Although the PU is not required by GATK but takes precedence over ID for base recalibration if it is present. 
     
-Typical read's name format in a fastq file from Illumina sequencing looks like:  
-
-@(instrument id):(run number):(flowcell ID):(lane):(tile):(x_pos):(y_pos) (read):(is filtered):(control number):(index sequence)
-
+Typical read's name format in a fastq file from Illumina sequencing looks like:<br>
+@(instrument id):(run number):(flowcell ID):(lane):(tile):(x_pos):(y_pos) (read):(is filtered):(control number):(index sequence)<br>
 So The first read's name can be used to automate the generation of ID and PU tags: 
    - FLOWCELL_BARCODE = @(instrument id):(run number):(flowcell ID)
    - ID = Read group identifier = {FLOWCELL_BARCODE}.{LANE}
