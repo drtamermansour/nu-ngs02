@@ -120,7 +120,7 @@ rm BD143_TGACCA_L00*.sorted.bam
 ```
 for bamFile in *.sorted.bam;do
   output=${bamFile%.sorted.bam}
-  samtools depth $bamFile | awk '{{sum+=$3}} END {{print "Average = ",sum/NR}}' > $output.cov
+  samtools depth $bamFile | awk '{{sum+=$3}} END {{print "Average = ",sum/NR, "No of covered Nuc = ", NR}}' > $output.cov
   samtools flagstat $bamFile > $output.stat
 done
 ```
