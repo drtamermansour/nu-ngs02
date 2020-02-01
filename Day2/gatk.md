@@ -37,7 +37,7 @@ a) Sample and library tags
    - LB = name of DNA preparation library tube = {SM}.{library-specific identifier}(Important To identify PCR duplicates in MarkDuplicates step. Ignore in PCR free libraries)
 
 The current Illumina sequencing file has this naming scheme:<br>
-<Sample.ID><Index.Sequence><Lane.ID><Set.number>.fastq<br>
+<Sample.ID><Index.Sequence><Lane.ID><read.end><Set.number>.fastq<br>
 So SM and LB tags can be autmatically detected from sample file's name:
    - SM = <Sample.ID>
    - LB = <Sample.ID>_<Index.Sequence>
