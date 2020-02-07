@@ -98,7 +98,7 @@ Explore files size!
 ```
 # Install Picard tools
 conda install -c bioconda picard 
-picard_path=$CONDA_PREFIX/share/picard-2.21.7-0
+picard_path=$CONDA_PREFIX/share/picard-* ## 2.21.7-0
 
 
 # merge the replicates
