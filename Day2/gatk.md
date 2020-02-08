@@ -334,7 +334,7 @@ grep -v "^#" raw_variants_ann_SNP_clean.vcf | awk '{if($7!="PASS")print $0}'
 cd ~/workdir/GATK_tutorial
 gatk --java-options "-Xmx2G" VariantFiltration \
 -R dog_chr5.fa \
--V raw_variants_ann_SNP.vcf \
+-V raw_variants_ann_INDEL.vcf \
 --filter-name "indelQD" \
 --filter-expression "vc.hasAttribute('QD') && QD < 2.0" \
 --filter-name "indelFS" \
