@@ -367,7 +367,8 @@ https://gatkforums.broadinstitute.org/gatk/discussion/3891/calling-variants-in-r
 
 **These links are useful:**
 
-*  [Mutect2](https://gatk.broadinstitute.org/hc/en-us/articles/360036730411-Mutect2)
+*  [Mutect2](https://gatk.broadinstitute.org/hc/en-us/articles/360036730411-Mutect2): GATK caller of somatic SNVs and indels via local assembly of haplotypes
+*  [Best Practices Workflows](https://gatk.broadinstitute.org/hc/en-us/articles/360035894731-Somatic-short-variant-discovery-SNVs-Indels-)
 *  [Tutorial](https://gatk.broadinstitute.org/hc/en-us/articles/360035889791?id=11136). It is deprected but has useful information
 *  [How does it work?](https://gatk.broadinstitute.org/hc/en-us/articles/360035890491?id=11127)
 
@@ -382,9 +383,7 @@ https://gatkforums.broadinstitute.org/gatk/discussion/3891/calling-variants-in-r
     -  While HaplotypeCaller relies on a fixed ploidy assumption to inform its genotype likelihoods that are the basis for genotype probabilities (PL), Mutect2 allows for varying ploidy in the form of allele fractions for each variant. Varying allele fractions is often seen within a tumor sample due to fractional purity, multiple subclones and/or copy number variation. 
     -  Mutect2 also differs from the HaplotypeCaller in that it can apply various prefilters to sites and variants depending on the use of a matched normal (--normalSampleName), a panel of normals (PoN; --normal_panel) and/or a common population variant resource containing allele-specific frequencies (--germline_resource). If provided, Mutect2 uses **the PoN to filter sites** and **the germline resource and matched normal to filter alleles**. 
     - Mutect2's default variant site annotations differ from those of HaplotypeCaller. See the --annotation parameter description for a list. 
-    - Finally, Mutect2 has additional parameters not available to HaplotypeCaller that factor in the decision to reassemble a genomic region, factor in likelihood calculations that then determine whether to emit a variant, or factor towards filtering. These parameters include the following and are each described further in the arguments section.
-      -  [CalculateContamination](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.beta.4/org_broadinstitute_hellbender_tools_walkers_contamination_CalculateContamination.php): Calculates the fraction of reads coming from cross-sample contamination
-      -  [Sequencing Artifact Metrics](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.beta.6/picard_analysis_artifacts_CollectSequencingArtifactMetrics.php): Quantify substitution errors caused by mismatched base pairings during various stages of sample / library prep:
-         *  artifacts that are introduced before the addition of the read1/read2 adapters ("pre adapter")  
-         *  artifacts that are introduced after target selection ("bait bias").
+    - Mutect2 has additional parameters not available to HaplotypeCaller that factor in the decision to reassemble a genomic region, factor in likelihood calculations that then determine whether to emit a variant, or factor towards filtering. These parameters include the following and are each described further in the arguments section.
+      -  [CalculateContamination](https://gatk.broadinstitute.org/hc/en-us/articles/360037225192-CalculateContamination): Calculates the fraction of reads coming from cross-sample contamination
+      -  [Sequencing Artifact Metrics](https://gatk.broadinstitute.org/hc/en-us/articles/360037592531-CollectSequencingArtifactMetrics-Picard-): Quantify substitution errors caused by mismatched base pairings during various stages of sample / library prep
 
