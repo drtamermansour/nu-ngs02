@@ -72,12 +72,23 @@ samtools index BD143_TGACCA_L005.sorted.bam
 ```
 samtools tview -p chr5:62155107 BD143_TGACCA_L005.sorted.bam bwaIndex/dog_chr5.fa
 ```
-- Understanding [Pileup format](https://en.wikipedia.org/wiki/Pileup_format) should help explaining the symbols in tview
+- Read legand: Understanding [Pileup format](https://en.wikipedia.org/wiki/Pileup_format) should help explaining the symbols in tview
+    * . (dot) means a base that matched the reference on the forward strand
+    * , (comma) means a base that matched the reference on the reverse strand
+    * AGTCN (upper case) denotes a base that did not match the reference on the forward strand
+    * agtcn (lower case) denotes a base that did not match the reference on the reverse strand
+    *  \* (asterisk) is a placeholder for a deleted base (e.g. -p chr5:62153561 & -p chr5:62172431 & -p chr5:62174911)
+- Consensus sequence:
+    * On the third line from the top
+    * It does not require a reference sequence! (try -p chr5:62170721 with and without reference)
+    * identify regions with variation and mark these accordingly (e.g. with the appropriate [nucleic acid notation](https://en.wikipedia.org/wiki/Nucleic_acid_notation) such as Y, K, R, etc.) e.g  -p chr5:62169161  and -p chr5:62176581
 - In the viewer: 
     * press `?` for help
     * `q` to quit
     * CTRL-h and CTRL-l do “big” scrolls
     * g chr5:62167341 will take you to a specific location. 
+    * try (m vs n or b) 
+    * At -p chr5:62172431 ==> try C vs N then try i 
 
 
 ## Visualize mapping using [IGV](https://bioinformatics-ca.github.io/resources/IGV_Tutorial.pdf)
