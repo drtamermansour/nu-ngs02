@@ -95,9 +95,9 @@ samtools tview -p chr5:62155107 BD143_TGACCA_L005.sorted.bam bwaIndex/dog_chr5.f
 
 ```
 cd ~
-wget http://data.broadinstitute.org/igv/projects/downloads/2.5/IGV_Linux_2.5.0.zip
-unzip IGV_Linux_2.5.0.zip
-sudo echo 'export IGV=$HOME/IGV_Linux_2.5.0/igv.sh' >> ~/.bashrc
+wget https://data.broadinstitute.org/igv/projects/downloads/2.8/IGV_Linux_2.8.13_WithJava.zip
+unzip IGV_Linux_2.8.13_WithJava.zip
+sudo echo 'export IGV=$HOME/IGV_Linux_2.8.13/igv.sh' >> ~/.bashrc
 source ~/.bashrc
 conda activate ngs1
 bash $IGV -g bwaIndex/dog_chr5.fa BD143_TGACCA_L005.sorted.bam
