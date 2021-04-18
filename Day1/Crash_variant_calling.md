@@ -100,6 +100,7 @@ unzip IGV_Linux_2.8.13_WithJava.zip
 sudo echo 'export IGV=$HOME/IGV_Linux_2.8.13/igv.sh' >> ~/.bashrc
 source ~/.bashrc
 conda activate ngs1
+cd ~/workdir/bwa_align
 bash $IGV -g bwaIndex/dog_chr5.fa BD143_TGACCA_L005.sorted.bam
 ```
 
