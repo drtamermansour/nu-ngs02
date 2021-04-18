@@ -104,18 +104,26 @@ cd ~/workdir/bwa_align
 bash $IGV -g bwaIndex/dog_chr5.fa BD143_TGACCA_L005.sorted.bam
 ```
 
-Call variants
-=============
+Variant calling by [BCFTools](http://samtools.github.io/bcftools/)
+==================================================================
+This is a two-step process:  
 
-mpileup: 
+1. mpileup: 
 - Generate **genotype likelihoods** for one or multiple alignment files. 
 - Individuals are identified from the SM tags in the @RG header lines. Thus multiple individuals can be pooled in one alignment file, also one individual can be separated into multiple files. If sample identifiers are absent, each input file is regarded as one sample.
-- Base alignment quality (BAQ). BAQ is the Phred-scaled probability of a read base being misaligned. Applying this option greatly helps to reduce false SNPs caused by misalignments.
+- The calculation takes into account mapping qualities of the reads, base qualities, and per-base alignment quality (BAQ)
+- **Base alignment quality (BAQ)** is the Phred-scaled probability of a read base being misaligned. Applying this option greatly helps to reduce false SNPs caused by misalignments (See below). It is calculated by default but you can turn off this computationally intensive procedure by using `--no-BAQ` option. 
 - `-Ou` option for piping between bcftools subcommands to speed up performance by removing unnecessary compression/decompression and VCF←→BCF conversion.
 
-Call: 
+2. Call: 
 - SNP/indel calling 
-- `-m` multiallelic-caller
+- It considers 
+    * the ploidy status (`--ploidy ASSEMBLY`), 
+    * prior knowledge of population allele frequencies (`--prior-freqs AN,AC`), 
+    * population structure (`--group-samples`), 
+    * Inheritance (`--constrain`), 
+    * variant-calling models: the [original biallelic caller](https://pubmed.ncbi.nlm.nih.gov/21903627/) (`-c`) and a newer model capable of handling positions with multiple alternate alleles (`-m`) and supporting [gVCF output](https://sites.google.com/site/gvcftools). 
+    * expected substitution rate (`--prior float` default=1.1e-3, make bigger for more sensitive call, smaller for more restrictive call, and 0 to disable the prior) 
 - `-v` output variant sites only
 
 ## Install [BCFTools](http://www.htslib.org/doc/bcftools.html)
@@ -139,3 +147,6 @@ Example from the page of [Calling SNPs/INDELs with SAMtools/BCFtools](http://sam
  1. multi-sequence realignment but computationally demanding
  2. SAMtools: It assigns each base a BAQ which is the Phred-scaled probability of the base being misaligned. BAQ is low if the base is aligned to a different reference base in a suboptimal alignment, and in this case a mismatch should contribute little to SNP calling even if the base quality is high. 
  3. GATK: local assembly
+
+
+**Benchmarking** https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7238416/
