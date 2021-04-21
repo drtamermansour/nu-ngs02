@@ -67,6 +67,7 @@ ls -tral ~/workdir/fqData/*_R*_001.pe.fq.gz
 ```
 
 ## Add Read group information and align all reads
+**Important Note about chimeric alignment**: [BWA-MEM algorithm](http://bio-bwa.sourceforge.net/bwa.shtml) allow chimeric alignments. Therefore, it may produce multiple primary alignments for different part of a query sequence. However, some tools such as Picard’s markDuplicates does not work with split alignments. The option -M instruct BWA to flag shorter split hits as secondary.   
 ```
 conda activate ngs1
 mkdir -p ~/workdir/GATK_tutorial && cd ~/workdir/GATK_tutorial
@@ -98,9 +99,11 @@ Explore files size!
 
 ## Merge replicates (e.g. one library running on two lanes) with [Picard tools](http://broadinstitute.github.io/picard/):
 ```
-# Install Picard tools
+# Install Picard tools & make sure you have the right Java version
 conda install -c bioconda picard 
 picard_path=$CONDA_PREFIX/share/picard-* ## 2.21.7-0
+conda install -c bioconda java-jdk=8.0.112
+java -version
 
 
 # merge the replicates
@@ -127,13 +130,20 @@ for bamFile in *.sorted.bam;do
 done
 ```
 
-## Mark duplicate
+## Mark duplicate using [MarkDuplicates in Picard tools](https://gatk.broadinstitute.org/hc/en-us/articles/360037052812-MarkDuplicates-Picard-)
+Duplicate reads are those originating from a single fragment of DNA. They can be classified into: 
+1.   PCR duplicates: arise during sample preparation
+2.   Optical duplicates: result from a single amplification cluster, incorrectly detected as multiple clusters by the optical sensor of the sequencing instrument
+
+The tool produce an ESTIMATED_LIBRARY_SIZE as well as an index for [Library Complexity](https://gatk.broadinstitute.org/hc/en-us/articles/360037051452-EstimateLibraryComplexity-Picard-)
+
 ```
 for sample in *.sorted.bam;do
   name=${sample%.sorted.bam}
   java  -Xmx2g -jar $picard_path/picard.jar MarkDuplicates INPUT=$sample OUTPUT=$name.dedup.bam METRICS_FILE=$name.metrics.txt;
 done
 ```
+Explore the output reports.  
 
 ## Install GATK
 ```
@@ -159,7 +169,7 @@ samtools faidx dog_chr5.fa
 
 ```
 # Download known polymorphic sites
-wget 'ftp://ftp.ensembl.org/pub/release-89/variation/vcf/canis_familiaris/Canis_familiaris.vcf.gz' -O canis_familiaris.vcf.gz
+wget 'ftp://ftp.ensembl.org/pub/release-103/variation/vcf/canis_lupus_familiaris/canis_lupus_familiaris.vcf.gz' -O canis_familiaris.vcf.gz
 
 # Select variants on chr5 and correct chr name
 gunzip canis_familiaris.vcf.gz
@@ -170,18 +180,23 @@ gatk IndexFeatureFile -I canis_fam_chr5.vcf
 
 Note the differences between genome annotation databases. Not only chromosome names but more importantly the coordinate system [interesting post](https://www.biostars.org/p/84686/)
 
-## Recalibrate Bases [BQSR](https://gatkforums.broadinstitute.org/gatk/discussion/44/base-quality-score-recalibration-bqsr)
+## Recalibrate Bases [BQSR](https://gatk.broadinstitute.org/hc/en-us/articles/360035890531-Base-Quality-Score-Recalibration-BQSR-)
 
 - Data pre-processing step that detects systematic errors made by the sequencer when it estimates the quality score of each base call.
 - Various sources of systematic (non-random) technical error, leading to over- or under-estimated base quality scores in the data. Some of these errors are due to the physics or the chemistry of how the sequencing reaction works, and some are probably due to manufacturing flaws in the equipment.
 - We apply machine learning to model these errors empirically and adjust the quality scores accordingly. For example we can identify that, for a given run, whenever we called two A nucleotides in a row, the next base we called had a 1% higher rate of error. So any base call that comes after AA in a read should have its quality score reduced by 1%.
 - We do that over several different covariates (mainly read group, quality score, sequence context, and position in read or cycle) in a way that is additive. So the same base may have its quality score increased for one reason and decreased for another
-- The base recalibration process involves two key steps: first one tool [(BaseRecalibrator)](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.5.0/org_broadinstitute_hellbender_tools_walkers_bqsr_BaseRecalibrator.php#--use-original-qualities) builds a model of covariation based on the data and a set of known variants, then another tool [(ApplyBQSR)](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.5.0/org_broadinstitute_hellbender_tools_walkers_bqsr_ApplyBQSR.php) adjusts the base quality scores in the data based on the model.
-- Why do we need known variants? The known variants are used to mask out bases at sites of real (expected) variation, to avoid counting real variants as errors. Outside of the masked sites, every mismatch is counted as an error. 
+- The base recalibration process involves two key steps: first one tool [(BaseRecalibrator)](https://gatk.broadinstitute.org/hc/en-us/articles/360056969412-BaseRecalibrator) builds a model of covariation based on the data and a set of known variants, then another tool [(ApplyBQSR)](https://gatk.broadinstitute.org/hc/en-us/articles/360056968652-ApplyBQSR) adjusts the base quality scores in the data based on the model.
+- Why do we need known variants? The known variants are used to mask out bases at sites of real (expected) variation, to avoid counting real variants as errors. Outside of the masked sites, every mismatch is counted as an error. If you do not have enough variants for your species, bootstrap a set of known variants
+- Amount of data: This procedure will not work well on a small number of aligned reads. We expect to see more than 100M bases per read group (more is better).
 - How does it really work? For each bin (e.g. bases with given quality or in a given read group), we count the number of bases within the bin and how often such bases mismatch the reference base. Correct their quailty score up or down to match the observed no of errors
 - We may re-run "BaseRecalibrator" once again after "ApplyBQSR" to and generating [before/after plots](https://gatk.broadinstitute.org/hc/en-us/articles/360035890531-Base-Quality-Score-Recalibration-BQSR-) to visualize the effects of the recalibration process.  
 
 ```
+## install ggplot2 required for the AnalyzeCovariates tool to plot the QC plots 
+conda install -c r r-ggplot2
+conda install -c conda-forge r-gsalib
+
 for sample in *.dedup.bam;do
   name=${sample%.dedup.bam}
 
@@ -192,10 +207,19 @@ for sample in *.dedup.bam;do
   gatk --java-options "-Xmx2G" ApplyBQSR \
 -R dog_chr5.fa -I $sample -bqsr $name.report \
 -O $name.bqsr.bam --add-output-sam-program-record --emit-original-quals
+
+  gatk --java-options "-Xmx2G" BaseRecalibrator \
+-R dog_chr5.fa -I $name.bqsr.bam --known-sites canis_fam_chr5.vcf \
+-O $name.report2
+
+  gatk AnalyzeCovariates \
+-before $name.report \
+-after $name.report2 \
+-plots $name.pdf
 done
 ```
 
-## Joint variant calling using [HaplotypeCaller](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.5.0/org_broadinstitute_hellbender_tools_walkers_haplotypecaller_HaplotypeCaller.php)
+## Joint variant calling using [HaplotypeCaller](https://gatk.broadinstitute.org/hc/en-us/articles/360056969012-HaplotypeCaller)
 
 Call germline SNPs and indels via **local re-assembly** of haplotypes
 
