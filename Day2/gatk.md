@@ -21,7 +21,7 @@ This [article](https://www.ncbi.nlm.nih.gov/pubmed/?term=24434847) is a good ref
 Points to keep in mind:
 
 - Trimming will increase the sequence base quality but will cause data loss as well decreasing the coverage so be careful.
-- Calls from reads with low quality will have low quality scores. Thus, they can be removed kater by variant filtration  
+- Calls from reads with low quality will have low quality scores. Thus, they can be removed later by variant filtration  
 - GATK has a recalibration step to minimize the impact of systematic errors 
 - Trimming is shown to increase the quality and reliability of the analysis, with concurrent gains in terms of execution time and computational resources needed [reference](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0085024) 
 
@@ -34,10 +34,11 @@ Points to keep in mind:
 
 a) Sample and library tags
    - SM = biological sample name.
-   - LB = name of DNA preparation library tube = {SM}.{library-specific identifier}(Important To identify PCR duplicates in MarkDuplicates step. Ignore in PCR free libraries)
+   - LB = name of DNA preparation library tube = {SM}.{library-specific identifier}  ==> (Important To identify PCR duplicates in MarkDuplicates step. Ignore in PCR free libraries)
 
-The current Illumina sequencing file has this naming scheme:<br>
+The current Illumina sequencing file has this [naming scheme](https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/NamingConvention_FASTQ-files-swBS.htm):<br>
 <Sample.ID><Index.Sequence><Lane.ID><read.end><Set.number>.fastq<br>
+e.g. BD143_TGACCA_L005_R1_001.pe.fq.gz<br>
 So SM and LB tags can be autmatically detected from sample file's name:
    - SM = <Sample.ID>
    - LB = <Sample.ID>_<Index.Sequence>
@@ -46,8 +47,9 @@ b) ID and PU tags
    - ID = This tag identifies which read group each read belongs to, so each read group's must be unique. In Illumina data, read group IDs are composed using the **flowcell name** and **lane number**, making them a globally unique identifier across all sequencing data in the world (as long as you have one sample in the SAM file). If you are merging multiple SAM files, you should add a sample identifier as well. Note that some Picard tools have the ability to modify IDs when merging SAM files in order to avoid collisions. 
    - PU = This tag mimic the ID tag but add library-specific identifier in case we have multiple library preparations for one sample running in the same lane. This is the most specific definition for a group of reads. Although the PU is not required by GATK but takes precedence over ID for base recalibration if it is present. 
     
-Typical read's name format in a fastq file from Illumina sequencing looks like:<br>
+Typical [Illumina read's name format](https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/FileFormat_FASTQ-files_swBS.htm) in a fastq file looks like:<br>
 @(instrument id):(run number):(flowcell ID):(lane):(tile):(x_pos):(y_pos) (read):(is filtered):(control number):(index sequence)<br>
+e.g. @D3VG1JS1:214:C7RNWACXX:5:1101:1041:57008 1:N:0:ATCCGA<br>
 So The first read's name can be used to automate the generation of ID and PU tags: 
    - FLOWCELL_BARCODE = @(instrument id):(run number):(flowcell ID)
    - ID = Read group identifier = {FLOWCELL_BARCODE}.{LANE}
