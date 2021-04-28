@@ -122,7 +122,12 @@ rm BD143_TGACCA_L00*.sorted.bam
 
 
 ## mapping QC
+We will use 2 tools for QC: samtools depth & samtools flagstat
 ```
+# Let us have a look on the output of the depth command
+samtools depth BD174_CAGATC_L005.sorted.bam > depth_output_example ## note that only the bases with minimum coverage 1 are reported
+
+# Now let run our QC 
 for bamFile in *.sorted.bam;do
   output=${bamFile%.sorted.bam}
   samtools depth $bamFile | awk '{{sum+=$3}} END {{print "Average = ",sum/NR, "No of covered Nuc = ", NR}}' > $output.cov
