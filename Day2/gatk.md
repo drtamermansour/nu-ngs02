@@ -198,14 +198,17 @@ Note the differences between genome annotation databases. Not only chromosome na
 
 ## Recalibrate Bases [BQSR](https://gatk.broadinstitute.org/hc/en-us/articles/360035890531-Base-Quality-Score-Recalibration-BQSR-)
 
-- Data pre-processing step that detects systematic errors made by the sequencer when it estimates the quality score of each base call.
-- Various sources of systematic (non-random) technical error, leading to over- or under-estimated base quality scores in the data. Some of these errors are due to the physics or the chemistry of how the sequencing reaction works, and some are probably due to manufacturing flaws in the equipment.
-- We apply machine learning to model these errors empirically and adjust the quality scores accordingly. For example we can identify that, for a given run, whenever we called two A nucleotides in a row, the next base we called had a 1% higher rate of error. So any base call that comes after AA in a read should have its quality score reduced by 1%.
-- We do that over several different covariates (mainly read group, quality score, sequence context, and position in read or cycle) in a way that is additive. So the same base may have its quality score increased for one reason and decreased for another
+- Data pre-processing step that detects **systematic errors** made by the sequencer when it estimates the quality score of each base call.
+- Systematic (non-random) errors are technical errors, leading to **patterns** of over- or under-estimated base quality scores in the data
+- Some of these errors are due to the physics or the chemistry of how the sequencing reaction works, and some are probably due to manufacturing flaws in the equipment.
+- We apply **machine learning** to model these errors empirically and adjust the quality scores accordingly. For example we can identify that, for a given run, whenever we called two A nucleotides in a row, the next base we called had a 1% higher rate of error. So any base call that comes after AA in a read should have its quality score reduced by 1%.
+-----------------
+- How does it really work? We do that over several different **covariates** (mainly read group, quality score, sequence context, and position in read or cycle). For each bin (e.g. bases with given quality or in a given read group), we **count the number of bases within the bin and how often such bases mismatch the reference base**. Correct their quailty score up or down to match the observed no of errors.
+- Calculations are done in a way that is **additive**. So the same base may have its quality score increased for one reason and decreased for another
+- Why do we need known variants? The **known variants** are used to mask out bases at sites of real (expected) variation, to avoid counting real variants as errors. Outside of the masked sites, every mismatch is counted as an error. If you do not have enough variants for your species, bootstrap a set of known variants
+- **Amount of data:** This procedure will not work well on a small number of aligned reads. We expect to see more than 100M bases per read group (more is better). 
+-----------------
 - The base recalibration process involves two key steps: first one tool [(BaseRecalibrator)](https://gatk.broadinstitute.org/hc/en-us/articles/360056969412-BaseRecalibrator) builds a model of covariation based on the data and a set of known variants, then another tool [(ApplyBQSR)](https://gatk.broadinstitute.org/hc/en-us/articles/360056968652-ApplyBQSR) adjusts the base quality scores in the data based on the model.
-- Why do we need known variants? The known variants are used to mask out bases at sites of real (expected) variation, to avoid counting real variants as errors. Outside of the masked sites, every mismatch is counted as an error. If you do not have enough variants for your species, bootstrap a set of known variants
-- Amount of data: This procedure will not work well on a small number of aligned reads. We expect to see more than 100M bases per read group (more is better).
-- How does it really work? For each bin (e.g. bases with given quality or in a given read group), we count the number of bases within the bin and how often such bases mismatch the reference base. Correct their quailty score up or down to match the observed no of errors
 - We may re-run "BaseRecalibrator" once again after "ApplyBQSR" to and generating [before/after plots](https://gatk.broadinstitute.org/hc/en-us/articles/360035890531-Base-Quality-Score-Recalibration-BQSR-) to visualize the effects of the recalibration process.  
 
 ```
