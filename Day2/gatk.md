@@ -140,7 +140,7 @@ Duplicate reads are those originating from a single fragment of DNA. They can be
 1.   PCR duplicates: arise during sample preparation
 2.   Optical duplicates: result from a single amplification cluster, incorrectly detected as multiple clusters by the optical sensor of the sequencing instrument
 
-The tool produce an ESTIMATED_LIBRARY_SIZE as well as an index for [Library Complexity](https://gatk.broadinstitute.org/hc/en-us/articles/360037051452-EstimateLibraryComplexity-Picard-)
+The tool produces an ESTIMATED_LIBRARY_SIZE as an index for [Library Complexity](https://gatk.broadinstitute.org/hc/en-us/articles/360037051452-EstimateLibraryComplexity-Picard-) "the numbers of unique molecules in a sequencing library."
 
 ```
 for sample in *.sorted.bam;do
@@ -149,6 +149,17 @@ for sample in *.sorted.bam;do
 done
 ```
 Explore the output reports.  
+```
+grep -A1 "^LIBRARY" BD143_TGACCA_merged.metrics.txt | tr '\n' '\t' | awk 'BEGIN{FS="\t";OFS="\n";S=" ==> "}{for(i=1; i<=10; i++)print $i S $(i+10)}' 
+## compre to the flagstat output: here are some key points
+## 1. UNPAIRED_READS_EXAMINED         =   singletons
+## 2. READ_PAIRS_EXAMINED             =   with itself and mate mapped (divided by 2)
+## 3. SECONDARY_OR_SUPPLEMENTARY_RDS  =   secondary + supplementary
+
+## Q: What is the meaning of the histogram produced by MarkDuplicates?
+## from https://broadinstitute.github.io/picard/faq.html
+## A: MarkDuplicates estimates the return on investment (ROI) for sequencing a library to a higher coverage than the observed coverage. The first column is the coverage multiple, and the second column is the multiple of additional actual coverage for the given coverage multiple. The first row (1x, i.e. the actual amount of sequencing done) should have ROI of approximately 1. The next row estimates the ROI for twice as much sequencing of the library. As one increases the amount of sequencing for a library, the ROI for additional sequencing diminishes because more and more of the reads are duplicates.
+```
 
 ## Install GATK
 ```
