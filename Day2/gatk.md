@@ -395,6 +395,10 @@ gatk --java-options "-Xmx2G" VariantFiltration \
 -O raw_variants_ann_INDEL_clean.vcf
 ```
 
+[Variant Quality Score Recalibration (VQSR)](https://gatk.broadinstitute.org/hc/en-us/articles/360035531612-Variant-Quality-Score-Recalibration-VQSR-): a sophisticated filtering technique applied on the variant callset that uses machine learning to model the technical profile of variants in a training set and uses that to filter out probable artifacts from the callset.
+
+
+
 ## How RNA variant calling is different?
 
 https://gatk.broadinstitute.org/hc/en-us/articles/360035531192-RNAseq-short-variant-discovery-SNPs-Indels-
