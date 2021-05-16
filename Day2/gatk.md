@@ -335,7 +335,7 @@ mv ../{*.SNP.*,SNP.*,*.INDEL.*,INDEL.*} .
 Figures!!!
 ```
 wget https://raw.githubusercontent.com/dib-lab/dogSeq/master/scripts/densityCurves.R
-sudo Rscript -e "install.packages('ggplot2', contriburl=contrib.url('http://cran.r-project.org/'))"
+#sudo Rscript -e "install.packages('ggplot2', contriburl=contrib.url('http://cran.r-project.org/'))"
 for f in SNP.* INDEL.*;do
   Rscript densityCurves.R "$f"
 done
