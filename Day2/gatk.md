@@ -414,13 +414,13 @@ https://gatkforums.broadinstitute.org/gatk/discussion/3891/calling-variants-in-r
 
 We can use the RNAseq data we used for NGS1 (reference based assembly) at ~/workdir/sample_data
 
-install [Star](https://github.com/alexdobin/STAR)
+## install [Star](https://github.com/alexdobin/STAR)
 ```
 conda activate ngs1
 conda install -c bioconda star
 ```
 
-Indexing
+## Indexing
 ```
 mkdir -p ~/workdir/star_align/starIndex && cd ~/workdir/star_align/starIndex
 STAR --runMode genomeGenerate \
@@ -432,7 +432,7 @@ STAR --runMode genomeGenerate \
 ```
 
 
-Align
+## Align
 ```
 cd ~/workdir/sample_data
 STAR --genomeDir ~/workdir/star_align/starIndex \
@@ -445,7 +445,7 @@ STAR --genomeDir ~/workdir/star_align/starIndex \
      --outFileNamePrefix HBR_Rep1_ERCC-Mix2_star
 ```
 
-Add ReadGroups
+## Add ReadGroups
 ```
 picard_path=$CONDA_PREFIX/share/picard-* ## 2.21.7-0
 java -Xmx2g -jar $picard_path/picard.jar AddOrReplaceReadGroups \
@@ -458,7 +458,7 @@ java -Xmx2g -jar $picard_path/picard.jar AddOrReplaceReadGroups \
        RGPU=unit1
 ```
 
-Mark duplicates
+## Mark duplicates
 ```
 gatk --java-options "-Xmx2G" MarkDuplicates \
      --INPUT HBR_Rep1_ERCC-Mix2_starAligned.sortedByCoord.RG.bam \
@@ -468,7 +468,7 @@ gatk --java-options "-Xmx2G" MarkDuplicates \
      --METRICS_FILE HBR_Rep1_ERCC-Mix2_star.metrics
 ```
 
-indexing
+## indexing
 ```
 # samples
 java -Xmx2g -jar $picard_path/picard.jar BuildBamIndex VALIDATION_STRINGENCY=LENIENT INPUT=HBR_Rep1_ERCC-Mix2_starAligned.sortedByCoord.RG.dedup.bam
@@ -480,7 +480,7 @@ java -Xmx2g -jar $picard_path/picard.jar CreateSequenceDictionary R=chr22_with_E
 samtools faidx chr22_with_ERCC92.fa
 ```
 
-split'N'Trim
+## split'N'Trim
 ```
 gatk --java-options "-Xmx2G" SplitNCigarReads \
      --reference chr22_with_ERCC92.fa \
@@ -490,7 +490,7 @@ gatk --java-options "-Xmx2G" SplitNCigarReads \
 
 We should do base recalibration but we do not have enough data so let us skip this step
 
-QC for errors in BAM files by ValidateSamFile
+## QC for errors in BAM files by ValidateSamFile
 ```
 java -Xmx2g -jar $picard_path/picard.jar ValidateSamFile \
         I=HBR_Rep1_ERCC-Mix2_starAligned.sortedByCoord.RG.dedup.split.bam \
@@ -498,7 +498,7 @@ java -Xmx2g -jar $picard_path/picard.jar ValidateSamFile \
 ```
 We see a WARNING about missing NM tags. This is an alignment tag that is added by some but not all genome aligners, and is not used by the downstream tools that we care about, so can simply ignore
 
-Variant calling by HaplotypeCaller
+## Variant calling by HaplotypeCaller
 ```
 gatk --java-options "-Xmx2G"  HaplotypeCaller \
      --reference chr22_with_ERCC92.fa \
