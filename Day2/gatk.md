@@ -412,6 +412,103 @@ https://gatkforums.broadinstitute.org/gatk/discussion/3891/calling-variants-in-r
 *  split'N'Trim: Split N-Ciger reads and hard-clip any sequences overhanging into the intronic regions
 *  Joint variant calling is not offcially tested in GATK
 
+We can use the RNAseq data we used for NGS1 (reference based assembly) at ~/workdir/sample_data
+
+install [Star](https://github.com/alexdobin/STAR)
+```
+conda activate ngs1
+conda install -c bioconda star
+```
+
+Indexing
+```
+mkdir -p ~/workdir/star_align/starIndex && cd ~/workdir/star_align/starIndex
+STAR --runMode genomeGenerate \
+     --genomeDir ~/workdir/star_align/starIndex \
+     --genomeFastaFiles ~/workdir/sample_data/chr22_with_ERCC92.fa \
+     --sjdbGTFfile ~/workdir/sample_data/chr22_with_ERCC92.gtf \
+     --sjdbOverhang 99 \
+     --genomeSAindexNbases 11   ## This is only needed for our small genome
+```
+
+
+Align
+```
+cd ~/workdir/sample_data
+STAR --genomeDir ~/workdir/star_align/starIndex \
+     --runThreadN 4 \
+     --readFilesIn HBR_Rep1_ERCC-Mix2_Build37-ErccTranscripts-chr22.read1.fastq.gz HBR_Rep1_ERCC-Mix2_Build37-ErccTranscripts-chr22.read2.fastq.gz \
+     --readFilesCommand "gunzip -c" \
+     --sjdbOverhang 99 \
+     --outSAMtype BAM SortedByCoordinate \
+     --twopassMode Basic \
+     --outFileNamePrefix HBR_Rep1_ERCC-Mix2_star
+```
+
+Add ReadGroups
+```
+picard_path=$CONDA_PREFIX/share/picard-* ## 2.21.7-0
+java -Xmx2g -jar $picard_path/picard.jar AddOrReplaceReadGroups \
+       I=HBR_Rep1_ERCC-Mix2_starAligned.sortedByCoord.out.bam \
+       O=HBR_Rep1_ERCC-Mix2_starAligned.sortedByCoord.RG.bam \
+       RGID=1 \
+       RGSM=HBR_Rep1_ERCC-Mix2 \
+       RGLB=lib1 \
+       RGPL=ILLUMINA \
+       RGPU=unit1
+```
+
+Mark duplicates
+```
+gatk --java-options "-Xmx2G" MarkDuplicates \
+     --INPUT HBR_Rep1_ERCC-Mix2_starAligned.sortedByCoord.RG.bam \
+     --OUTPUT HBR_Rep1_ERCC-Mix2_starAligned.sortedByCoord.RG.dedup.bam  \
+     --CREATE_INDEX true \
+     --VALIDATION_STRINGENCY SILENT \
+     --METRICS_FILE HBR_Rep1_ERCC-Mix2_star.metrics
+```
+
+indexing
+```
+# samples
+java -Xmx2g -jar $picard_path/picard.jar BuildBamIndex VALIDATION_STRINGENCY=LENIENT INPUT=HBR_Rep1_ERCC-Mix2_starAligned.sortedByCoord.RG.dedup.bam
+
+
+# Reference
+ln -s ~/workdir/sample_data/chr22_with_ERCC92.fa .
+java -Xmx2g -jar $picard_path/picard.jar CreateSequenceDictionary R=chr22_with_ERCC92.fa O=chr22_with_ERCC92.dict
+samtools faidx chr22_with_ERCC92.fa
+```
+
+split'N'Trim
+```
+gatk --java-options "-Xmx2G" SplitNCigarReads \
+     --reference chr22_with_ERCC92.fa \
+     --input HBR_Rep1_ERCC-Mix2_starAligned.sortedByCoord.RG.dedup.bam \
+     --output HBR_Rep1_ERCC-Mix2_starAligned.sortedByCoord.RG.dedup.split.bam
+```
+
+We should do base recalibration but we do not have enough data so let us skip this step
+
+QC for errors in BAM files by ValidateSamFile
+```
+java -Xmx2g -jar $picard_path/picard.jar ValidateSamFile \
+        I=HBR_Rep1_ERCC-Mix2_starAligned.sortedByCoord.RG.dedup.split.bam \
+        MODE=SUMMARY
+```
+We see a WARNING about missing NM tags. This is an alignment tag that is added by some but not all genome aligners, and is not used by the downstream tools that we care about, so can simply ignore
+
+Variant calling by HaplotypeCaller
+```
+gatk --java-options "-Xmx2G"  HaplotypeCaller \
+     --reference chr22_with_ERCC92.fa \
+     --input HBR_Rep1_ERCC-Mix2_starAligned.sortedByCoord.RG.dedup.split.bam \
+     --output HBR_Rep1_ERCC-Mix2_star.vcf.gz \
+     -dont-use-soft-clipped-bases
+```
+
+
+
 ## How somatic variant calling is different?
 
 **These links are useful:**
