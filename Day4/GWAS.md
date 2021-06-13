@@ -1,7 +1,8 @@
 Genome Wide Association Analysis (GWAS)
 =======================================
 
-Install [Plink](https://www.cog-genomics.org/plink)
+Install [Plink](https://www.cog-genomics.org/plink). 
+Shouldn't we use PLINK2 instead of the old PLINK? Actually, things are not that simple. You can read more [here](https://www.biostars.org/p/299855/) about this 
 ```
 conda activate ngs1
 conda install -c bioconda plink 
