@@ -67,7 +67,7 @@ less coatColor.pheno  ## phenotype file: family IDs, within-family IDs, and phen
   
   *  **Note2:** If the ped file did not have informative phenotype values or we want to replace these phenotype values, --make-pheno <phenotype_file> <phenotype> can be used 
 
-  *  **Note3:** By default, the minor allele is coded A1 and tested for being the risk allele. This will be confusing if the reference allele happens to be the minor allele. --a2-allele <filename> [a2col] [IDcol] [skip] : Force alleles in the "a2col" column of the file to A2. This will cause the alternative allele to be always coded A1 and tested for being the risk allele
+  *  **Note3:** By default, the minor allele is coded A1 and tested for being the risk allele. This will be confusing if the reference allele happens to be the minor allele. --a2-allele \<filename\> [a2col] [IDcol] [skip] : Force alleles in the "a2col" column of the file to A2. This will cause the alternative allele to be always coded A1 and tested for being the risk allele
 
   *  **Note4:** –-adjust enables correction for multiple analysis and automatically calculates the genomic inflation factor
 
