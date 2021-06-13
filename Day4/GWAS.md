@@ -16,18 +16,14 @@ Download the sample VCF file and phenotype data: Genotyping of 476840 SNPs in 53
 mkdir -p ~/GWAS && cd ~/GWAS
 wget https://de.cyverse.org/dl/d/E0A502CC-F806-4857-9C3A-BAEAA0CCC694/pruned_coatColor_maf_geno.vcf.gz
 gunzip pruned_coatColor_maf_geno.vcf.gz
-wget https://de.cyverse.org/dl/d/3B5C1853-C092-488C-8C2F-CE6E8526E96B/coatColor.pheno
 ## explore the headers line of the VCF
-grep "^#CHROM" pruned_coatColor_maf_geno.vcf
-## explore the phenotype file
-less coatColor.pheno  ## phenotype file: family IDs, within-family IDs, and phenotype
+grep "^#CHROM" pruned_coatColor_maf_geno.vcf | tr '\t' '\n'   ## we have genotypes for 53 dogs (24 yellow coat and 29 dark coat)
 ```
 
-convert VCF into Plink readable format (map,ped) then Plink binary format (fam,bed,bim)
+Convert VCF into Plink readable format (map,ped)
 ```
 #conda install vcftools
 vcftools --vcf pruned_coatColor_maf_geno.vcf --plink --out coatColor
-plink --file coatColor --allow-no-sex --dog --make-bed --out coatColor.binary
 ```
 
 [map file format](https://www.cog-genomics.org/plink/1.9/formats#map)
@@ -48,14 +44,30 @@ Contains no header line, and one line per sample with 2V+6 fields where V is the
 *  Sex code ('1' = male, '2' = female, '0' = unknown)
 *  Phenotype value ('1' = control, '2' = case, '-9'/'0'/non-numeric = missing data if case/control)
 
+Convert "map and ped" files into Plink binary format (fam,bed,bim)
+```
+## Plink input can be done using --map and --ped arguments that receive the corresponding files or one argument --file that receives a suffix for input files
+## Our ped file has no sex info, therefore we have to use --allow-no-sex (This will prevent a sex-linked analysis)
+## Inless working woth human, you need to define your input species (https://zzz.bwh.harvard.edu/plink/misc.shtml#species)
+## The --make-bed command will do the conversion. The output files will have the suffix "plink" by default unless you provided another suffix by --out 
+plink --file coatColor --allow-no-sex --dog --make-bed --out coatColor.binary
+```
 
-**Run a simple association analysis**
+Our input files generated from the VCF files do not have phenotype data. Instead will provide this info in a separate phenotype file
+```
+wget https://de.cyverse.org/dl/d/3B5C1853-C092-488C-8C2F-CE6E8526E96B/coatColor.pheno
+## explore the phenotype file
+less coatColor.pheno  ## phenotype file: family IDs, within-family IDs, and phenotype
+```
+
+
+**Run a standard case/control association analysis**
 
   *  **Note1:** –-assoc performs a standard case/control association analysis which is a chi-square test of allele frequency.
   
   *  **Note2:** If the ped file did not have informative phenotype values or we want to replace these phenotype values, --make-pheno <phenotype_file> <phenotype> can be used 
 
-  *  **Note3:** By default, the minor allele is coded A1 and tested for being the risk allele. This will be confusing if the reference allele happens to be the minor allele. --a2-allele <filename> [a2col] [IDcol] [skip] : Force alleles in the "a2col" column of the file to A2.
+  *  **Note3:** By default, the minor allele is coded A1 and tested for being the risk allele. This will be confusing if the reference allele happens to be the minor allele. --a2-allele <filename> [a2col] [IDcol] [skip] : Force alleles in the "a2col" column of the file to A2. This will cause the alternative allele to be always coded A1 and tested for being the risk allele
 
   *  **Note4:** –-adjust enables correction for multiple analysis and automatically calculates the genomic inflation factor
 
