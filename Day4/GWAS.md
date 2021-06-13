@@ -94,7 +94,6 @@ check the output [.assoc](https://www.cog-genomics.org/plink/1.9/formats#assoc) 
 
 Install qqman package
 ```
-Rscript -e "install.packages('qqman',  contriburl=contrib.url('http://cran.r-project.org/'))"
 conda install -c bioconda r-qqman
 ```
 
