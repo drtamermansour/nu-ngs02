@@ -75,13 +75,27 @@ less coatColor.pheno  ## phenotype file: family IDs, within-family IDs, and phen
 plink --bfile coatColor.binary --assoc --make-pheno coatColor.pheno "yellow" --a2-allele pruned_coatColor_maf_geno.vcf 4 3 '#' --allow-no-sex --adjust --dog --out coatColor
 ```
 
-check the output files!
+check the output [.assoc](https://www.cog-genomics.org/plink/1.9/formats#assoc) file
+ 
+| col_id | definition |
+|--------|------------|
+| CHR	| Chromosome code |
+| SNP	| Variant identifier |
+| BP	| Base-pair coordinate |
+| A1	| Allele 1 (usually minor but we chose to be ALT) |
+| F_A	| Allele 1 frequency among cases |
+| F_U	| Allele 1 frequency among controls |
+| A2	| Allele 2 |
+| CHISQ	| Allelic test chi-square statistic |
+| P	| Allelic test p-value |
+| OR	| odds(allele 1 \| case) / odds(allele 1 \| control) |
 
 **Create Manhattan plot**
 
 Install qqman package
 ```
 Rscript -e "install.packages('qqman',  contriburl=contrib.url('http://cran.r-project.org/'))"
+conda install -c bioconda r-qqman
 ```
 
 Identify statistical cutoffs
