@@ -1,7 +1,17 @@
 # Meta-Analysis of Genome Wide Association Studies
 
-Genome-wide association studies are useful for detecting common variants in complex diseases. 
-Meta-analysis of multiple genome-wide association studies  increases the power of detecting rare variants and reduces false positives.  
+**Meta-analysis of multiple genome-wide association studies has several advantages**: 
+1.  increases the power for detecting variants with modest effect sizes  
+2.  reduces the study specific false positives.  
+3.  Meta-analysis in contrast to direct analysis of pooled individual-level data: 
+    1.  alleviates common concerns with privacy of study participants  
+    2.  avoids cumbersome integration of genotype and phenotypic data from different studies. 
+    3.  allows for custom analyses of individual studies to conveniently account for population substructure, the presence of related individuals, study-specific covariates and many other ascertainment-related issues.
+
+
+**Methods of Meta-analysis implemented in [METAL](http://genome.sph.umich.edu/wiki/METAL_Documentation)**: The basic principle of meta-analysis is to combine the evidence for association from individual studies, using appropriate weights. METAL can combine either 
+1.  weights the effect size estimates, or β-coefficients, by their estimated standard errors - Thie requires effect size estimates and their standard errors to be in consistent units across studies
+2.  p-values across studies (taking sample size and direction of effect into account). In a study with unequal numbers of cases and controls, Metal recommends that the effective sample size be provided in the input file, where Neff = 4/(1/Ncases+1/Nctrls). 
 
 Today we will conduct a *meta-analysis* of two previously conducted prostate cancer GWASs in humans.
 
@@ -35,9 +45,8 @@ Let's look at each study's manhattan plot.
 
 We may be able to use the power of meta-analysis to resolve some of the questionably significant markers.
 
-Let's use METAL to run a fixed-effect meta-analysis weighted by sample number fore each study.
+Let's use METAL to run a meta-analysis of the effect size weighted by estimated standard errors for each study.
 
-Note: it is important to investigate what type of meta-analysis is most appropriate for your study, as each kind has limitations. For example, fixed effect meta-analyses will be biased under a large amount of heterogeneity. 
 
 ### Run metal
 
@@ -100,7 +109,5 @@ setwd("/home/tx160085/meta_GWAS")
 openPDF("METAANALYSIS1.TBL.allChrs.manhattan.png")
 ```
 
-### References 
+### More readings 
 [http://www.nature.com/nrg/journal/v14/n6/full/nrg3472.html](http://www.nature.com/nrg/journal/v14/n6/full/nrg3472.html)
-
-[METAL Documentation](http://genome.sph.umich.edu/wiki/METAL_Documentation)
