@@ -11,7 +11,7 @@
 
 **Methods of Meta-analysis implemented in [METAL](http://genome.sph.umich.edu/wiki/METAL_Documentation)**: The basic principle of meta-analysis is to combine the evidence for association from individual studies, using appropriate weights. METAL can combine either 
 1.  weights the effect size estimates, or β-coefficients, by their estimated standard errors - Thie requires effect size estimates and their standard errors to be in consistent units across studies
-2.  p-values across studies (taking sample size and direction of effect into account). In a study with unequal numbers of cases and controls, Metal recommends that the effective sample size be provided in the input file, where Neff = 4/(1/Ncases+1/Nctrls). 
+2.  p-values across studies (taking sample size and direction of effect into account). In a study with unequal numbers of cases and controls, Metal recommends that the [effective sample size](https://en.wikipedia.org/wiki/Effective_sample_size) be provided in the input file, where Neff = 4/(1/Ncases+1/Nctrls). 
 
 Today we will conduct a *meta-analysis* of two previously conducted prostate cancer GWASs in humans.
 
