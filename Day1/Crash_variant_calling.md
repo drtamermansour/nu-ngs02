@@ -85,7 +85,7 @@ samtools tview -p chr5:62155107 BD143_TGACCA_L005.sorted.bam bwaIndex/dog_chr5.f
 - In the viewer: 
     * press `?` for help
     * `q` to quit
-    * CTRL-h and CTRL-l do “big” scrolls
+    * CTRL-H and CTRL-L do “big” scrolls
     * g chr5:62167341 will take you to a specific location. 
     * try (m vs n or b) 
     * At -p chr5:62172431 ==> try C vs N then try i 
