@@ -528,6 +528,8 @@ gatk --java-options "-Xmx2G"  HaplotypeCaller \
    ![alt text](somaticCall.png)
 
     - Mutect2 has additional parameters not available to HaplotypeCaller that factor in the decision to reassemble a genomic region, factor in likelihood calculations that then determine whether to emit a variant, or factor towards filtering. These parameters include the following and are each described further in the arguments section.
-      -  [CalculateContamination](https://gatk.broadinstitute.org/hc/en-us/articles/360037225192-CalculateContamination): Calculates the fraction of reads coming from cross-sample contamination
+      -  [CalculateContamination](https://gatk.broadinstitute.org/hc/en-us/articles/360037225192-CalculateContamination): Calculates the fraction of reads coming from cross-sample contamination. Nice related [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3167057/)
       -  [Sequencing Artifact Metrics](https://gatk.broadinstitute.org/hc/en-us/articles/360037592531-CollectSequencingArtifactMetrics-Picard-): Quantify substitution errors caused by mismatched base pairings during various stages of sample / library prep
+* Example project: https://github.com/drtamermansour/dogTumors/blob/master/Snakefile
+
 
