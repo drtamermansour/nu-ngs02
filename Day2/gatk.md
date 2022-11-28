@@ -296,7 +296,7 @@ conda install -c bioconda rtg-tools
 rtg vcfstats raw_variants_ann.vcf.gz > stats.txt
 ```
 
-read more about [RTG tools](https://www.realtimegenomics.com/products/rtg-tools) and explore there [manual](https://cdn.rawgit.com/RealTimeGenomics/rtg-tools/master/installer/resources/tools/RTGOperationsManual/index.html) for the possible commands
+read more about [RTG tools](https://www.realtimegenomics.com/products/rtg-tools) and explore there [manual](https://cdn.rawgit.com/RealTimeGenomics/rtg-tools/master/installer/resources/tools/RTGOperationsManual.pdf) for the possible commands
 
 ## Split SNPs and indels
 
