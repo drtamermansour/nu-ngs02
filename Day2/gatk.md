@@ -2,7 +2,7 @@
 GATK Variant calling
 ====================
 
-Did you run the [crash variant calling tutorial](https://github.com/drtamermansour/nu-ngs02/blob/master/Crash_variant_calling.md)? Make sure you run it to download data and software needed for this tutorial
+Did you run the [crash variant calling tutorial](https://github.com/drtamermansour/nu-ngs02/blob/master/Day1/Crash_variant_calling.md)? Make sure you run it to download data and software needed for this tutorial
 
 **What is the optimum sequence coverage?**
 
